@@ -128,7 +128,7 @@
 @media (max-width: 600px) {
   .opening { min-height: max(100svh, 700px); padding-left: 28px; padding-right: 28px; }
   .paper-frame { inset: 14px; }
-  .envelope-heading { margin-bottom: 85px; gap: 10px; }
+  .envelope-heading { gap: 10px; }
   .opening-lotus { width: 55px; height: 40px; margin-bottom: 20px; }
   .envelope-stage .eyebrow { font-size: 8px; margin-bottom: 16px; }
   .wax-seal { width: 56px; height: 56px; font-size: 20px; }

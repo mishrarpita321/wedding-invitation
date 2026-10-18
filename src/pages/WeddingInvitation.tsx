@@ -28,7 +28,7 @@ export default function WeddingInvitation({ music }: { music: MusicToggleProps }
       <CoupleIntroduction />
       <EventTimeline />
       <WeddingCountdown />
-      <VenueLocation />
+      {/* <VenueLocation /> */}
       <Footer />
     </motion.main>
   );

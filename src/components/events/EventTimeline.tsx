@@ -11,7 +11,7 @@ export default function EventTimeline() {
   return (
     <section id="celebrations" className="section itinerary" aria-labelledby="itinerary-title">
       <Container maxWidth="lg">
-        <Reveal><h2 id="itinerary-title">Wedding Itinerary</h2>
+        <Reveal><h2 id="itinerary-title">Wedding Celebrations</h2>
           <p className="section-intro">Join us for the moments that mean everything.</p></Reveal>
         <Box component="ol" className="event-timeline">
           {events.map((event, index) => (
