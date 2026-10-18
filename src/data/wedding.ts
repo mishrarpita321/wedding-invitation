@@ -9,7 +9,7 @@ export const wedding = {
   location: 'Bhubaneswar, Odisha',
   residence: 'D/23, Mason Paradise, Patia, Bhubaneswar',
   audio: '/assets/wedding-music.mp3',
-  photos: { together: '/assets/together.webp', arpita: '/assets/arpita.webp', swagat: '/assets/swagat.webp' },
+  photos: { together: '/assets/together.webp', together1: '/assets/together1.webp', arpita: '/assets/arpita.webp', swagat: '/assets/swagat.webp' },
 };
 
 export type EventId = 'engagement' | 'mehendi' | 'haldi' | 'wedding' | 'reception';

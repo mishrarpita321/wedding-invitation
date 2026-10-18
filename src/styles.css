@@ -175,18 +175,33 @@ em {
   text-align: center;
 }
 
-.hero h1 {
+.hero .hero-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .12em;
   font-size: clamp(65px,8vw,110px);
-  line-height: .9;
+  line-height: 1;
   margin: 30px 0;
 }
 
-.hero h1 span {
+.hero-name {
   display: block;
+  font-size: inherit;
+  line-height: 1;
+}
+
+.hero-ampersand {
+  display: block;
+  align-self: center;
+  font-size: .45em;
+  line-height: 1;
   /* font-style: italic; */
-  font-size: .75em;
+  font-family: "Great Vibes", cursiv;
   color: var(--gold);
-  line-height: 1.5;
+  margin: 0;
+  /* Balance the display font's descenders without viewport-specific offsets. */
+  padding-block-start: .35em;
 }
 
 .hero-date {
@@ -375,23 +390,48 @@ em {
   color: var(--muted);
 }
 
-.closing {
-  padding-bottom: 100px;
+.closing.section {
+  padding: clamp(48px,6vw,80px) 20px;
+}
+
+.closing-composition {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(280px,.95fr);
+  align-items: center;
+  gap: 24px clamp(30px,5vw,72px);
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.closing-intro {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: end;
+}
+
+.closing-message {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
 }
 
 .closing-photo {
-  width: 200px;
-  margin: 0 auto 38px;
-  padding: 7px;
-  border: 1px solid var(--line);
-  border-radius: 110px 110px 0 0;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: min(100%,520px);
+  margin: 0 auto;
+  padding: 8px;
+  border: 1px solid var(--gold);
+  border-radius: 50% 50% 0 0 / 26% 26% 0 0;
+  box-shadow: 0 12px 32px color-mix(in srgb,var(--ink) 7%,transparent);
 }
 
 .closing-photo img {
   width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 100px 100px 0 0;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  border-radius: 50% 50% 0 0 / 26% 26% 0 0;
   display: block;
 }
 
@@ -401,18 +441,28 @@ em {
 }
 
 .closing h2 {
-  font-size: clamp(38px,6vw,62px);
+  font-size: clamp(38px,4.5vw,62px);
+  margin-bottom: 0;
 }
 
-.closing>div>p:not(.eyebrow):not(.closing-names) {
+.closing-message>p:not(.eyebrow):not(.closing-names) {
   font-size: 15px;
   color: var(--muted);
+  margin-bottom: 0;
 }
 
 .closing-names {
   font: italic 34px var(--display);
   color: var(--maroon);
-  margin: 30px 0 15px;
+  margin: 22px 0 12px;
+}
+
+.closing-message .eyebrow {
+  margin-bottom: 0;
+}
+
+.closing-message .flourish {
+  margin: 20px auto 0;
 }
 
 .music-button.MuiIconButton-root {
@@ -489,16 +539,11 @@ em {
   .hero-copy {
     width: 100%;
   }
-  .hero h1 {
+  .hero .hero-names {
     font-size: 76px;
-    line-height: .85;
     margin: 22px 0;
   }
-  .hero h1 span {
-    font-size: 32px;
-    line-height: 1.3;
-  }
-  .hero-copy>.eyebrow {
+  .hero-details .eyebrow {
     font-size: 8px;
   }
   .hero .flourish {
@@ -561,9 +606,6 @@ em {
   .location h3 {
     margin-bottom: 10px;
   }
-  .closing {
-    padding-bottom: 100px;
-  }
   .closing .eyebrow {
     font-size: 8px;
   }
@@ -586,11 +628,26 @@ em {
 }
 
 @media (max-width:350px) {
-  .hero h1 {
+  .hero .hero-names {
     font-size: 66px;
   }
   .clock {
     gap: 15px;
+  }
+}
+
+@media (max-width:899px) {
+  .closing-composition {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(24px,4vw,36px);
+  }
+  .closing-intro,
+  .closing-message {
+    align-self: center;
+  }
+  .closing-photo {
+    width: min(82%,440px);
   }
 }
 
