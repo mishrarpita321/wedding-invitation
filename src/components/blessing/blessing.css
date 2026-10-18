@@ -1,0 +1,36 @@
+﻿.ganesh-blessing {
+  position: relative;
+  min-height: min(740px, 90svh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 85px 25px 65px;
+  text-align: center;
+}
+.ganesh-blessing::before {
+  content: '';
+  position: absolute;
+  top: 26px;
+  bottom: 20px;
+  left: max(18px, calc((100% - 940px) / 2));
+  right: max(18px, calc((100% - 940px) / 2));
+  border: 1px solid var(--line);
+  pointer-events: none;
+}
+.blessing-content { width: 100%; max-width: 580px; }
+.sanskrit { font-family: 'Noto Serif Devanagari', Georgia, serif; color: var(--maroon); }
+.invocation { font-size: 17px; letter-spacing: .06em; margin-bottom: 28px; }
+.ganesh { width: 130px; height: 148px; color: var(--gold); margin-bottom: 28px; }
+.shloka { font-size: clamp(14px, 3.9vw, 20px); line-height: 2.2; margin-bottom: 23px; }
+.blessing-meaning { font: italic 21px/1.6 var(--display); color: var(--muted); margin-bottom: 0; }
+.ganesh-blessing .flourish { margin: 25px auto 0; }
+@media (max-width: 600px) {
+  .ganesh-blessing.section { padding: 75px 25px 60px; min-height: 620px; }
+  .ganesh { width: 112px; height: 127px; }
+  .invocation { margin-bottom: 22px; }
+  .blessing-meaning { font-size: 20px; }
+}
+@media (max-width: 350px) {
+  .shloka { font-size: 13px; }
+  .blessing-meaning { font-size: 18px; }
+}

@@ -1,0 +1,51 @@
+import { useState } from 'react';
+import Paper from '@mui/material/Paper';
+import { motion, useReducedMotion } from 'framer-motion';
+import type { WeddingEvent } from '../../data/wedding';
+import { getGoogleMapsUrl } from '../../utils/maps';
+import DetailIcon from '../shared/DetailIcon';
+import EventArtwork from './EventArtwork';
+
+// Only request images actually present in public/assets/events. Missing files never produce broken images or 404s.
+const suppliedImagePaths = new Set(Object.keys(import.meta.glob('/public/assets/events/*.{webp,jpg,jpeg,png,avif}', {
+  query: '?url', import: 'default',
+})));
+
+export default function EventTimelineCard({ event, index }: { event: WeddingEvent; index: number }) {
+  const reduced = useReducedMotion();
+  const [imageFailed, setImageFailed] = useState(false);
+  const image = suppliedImagePaths.has(`/public${event.image}`) ? event.image : undefined;
+
+  return (
+    <motion.div className="event-card-reveal" initial={reduced ? false : { opacity: 0, y: 36 }}
+      whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-35px' }} transition={{ duration: 0.7 }}>
+      <Paper component="article" elevation={0} className={`event-card ${event.id === 'wedding' ? 'wedding-event-card' : ''}`} aria-labelledby={`event-${event.id}`}>
+        <div className="event-image">
+          {image && !imageFailed
+            ? <img src={image} alt={`${event.title} celebration details`} loading="lazy" decoding="async" onError={() => setImageFailed(true)} />
+            : <EventArtwork event={event.id} />}
+          <span className="event-image-label">{event.title}</span>
+          <span className="event-number" aria-hidden="true">0{index + 1}</span>
+        </div>
+        <div className="event-card-body">
+          <p className="event-detail event-date"><DetailIcon kind="calendar" /><span>{event.day}<br /><strong>{event.date}</strong></span></p>
+          <h3 id={`event-${event.id}`}>{event.title}</h3>
+          {event.subtitle && <p className="event-note">{event.subtitle}</p>}
+          <p className="event-detail"><DetailIcon kind="clock" /><span>{event.time}</span></p>
+          <p className="event-detail"><DetailIcon kind="pin" /><span><strong>{event.venue}</strong><br />{event.address}</span></p>
+          <div className="event-dress-code">
+            <p className="event-detail"><DetailIcon kind="dress" /><span>{event.dressCode.preferred}</span></p>
+            {!!event.dressCode.colors.length && <div className="preferred-swatches" aria-label="Suggested colour palette">
+              {event.dressCode.colors.map(color => <span key={color} style={{ backgroundColor: color }} />)}
+            </div>}
+            {event.dressCode.avoid.length ? <div className="event-avoid"><span>Kindly avoid</span><ul>
+              {event.dressCode.avoid.map(color => <li key={color.name}><span className="avoid-swatch" style={{ backgroundColor: color.color }} aria-hidden="true" />{color.name}</li>)}
+            </ul></div> : <p className="no-restriction">No specific colour restriction.</p>}
+          </div>
+          <a className="text-link" href={getGoogleMapsUrl(event.mapsQuery)} target="_blank" rel="noopener noreferrer"
+            aria-label={`Get directions for ${event.title} to ${event.venue}`}>Get Directions <span aria-hidden="true">↗</span></a>
+        </div>
+      </Paper>
+    </motion.div>
+  );
+}
