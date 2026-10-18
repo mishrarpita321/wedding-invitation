@@ -66,6 +66,8 @@
 .event-card.MuiPaper-root {
   background: var(--ivory);
   color: var(--ink);
+  font-family: Arial, sans-serif;
+  font-variant-numeric: lining-nums tabular-nums;
   border: 1px solid var(--line);
   border-radius: 3px;
   overflow: hidden;
@@ -97,7 +99,7 @@
   text-transform: uppercase;
   letter-spacing: 0.18em;
 }
-.event-number { position: absolute; right: 24px; bottom: 14px; color: var(--ivory); opacity: 0.7; z-index: 1; font: 24px var(--display); }
+.event-number { position: absolute; right: 24px; bottom: 14px; color: var(--ivory); opacity: 0.7; z-index: 1; font: 20px/1 Arial, sans-serif; }
 .event-artwork { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #e8d4ad; background: var(--maroon); }
 .artwork-mehendi { background: #4e614e; }
 .artwork-haldi { background: #97712e; }
@@ -131,9 +133,9 @@
 .event-card .text-link { margin-top: 14px; }
 
 @media (max-width: 899px) {
-  .event-timeline { max-width: 540px; margin-top: 34px; }
+  .event-timeline { max-width: 540px; margin-top: 24px; }
   .event-timeline::before { left: 6px; }
-  .timeline-entry { grid-template-columns: 22px minmax(0, 1fr); padding-bottom: 28px; }
+  .timeline-entry { grid-template-columns: 22px minmax(0, 1fr); padding-bottom: 20px; }
   .timeline-entry .event-card-reveal { grid-column: 2; }
   .timeline-dot { grid-column: 1; justify-self: start; width: 11px; height: 11px; margin-left: 1px; }
   .timeline-dot::after { display: none; }
@@ -141,7 +143,7 @@
 }
 
 @media (max-width: 600px) {
-  .itinerary.section { padding: 65px 12px; }
+  .itinerary.section { padding: 48px 12px; }
   .itinerary > .MuiContainer-root { padding: 0; }
   .event-card-body { padding: 22px 20px; }
   .event-card-body h3 { font-size: 31px; }

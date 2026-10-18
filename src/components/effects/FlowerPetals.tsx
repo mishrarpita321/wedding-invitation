@@ -9,7 +9,7 @@ export default function FlowerPetals() {
   const mobile = useMediaQuery(theme.breakpoints.down('sm'));
   const reduced = useReducedMotion();
   const petals = useMemo(() => {
-    const colors = [theme.palette.primary.main, theme.palette.secondary.main, '#e8bfc4', '#e4c977', '#c8898a'];
+    const colors = [theme.palette.primary.main, theme.palette.secondary.dark, '#a55268', '#b76e56', '#c77584'];
     return Array.from({ length: 16 }, (_, id) => ({
       id, left: Math.random() * 100, size: 6 + Math.random() * 6,
       duration: 17 + Math.random() * 12, delay: Math.random() * 13,
@@ -25,7 +25,7 @@ export default function FlowerPetals() {
         <motion.span key={petal.id} className="flower-petal"
           style={{ left: `${petal.left}%`, width: petal.size, height: petal.size * 1.45, background: petal.color }}
           initial={{ opacity: 0, y: '-5vh' }}
-          animate={{ y: ['-5vh', '108vh'], x: [0, petal.sway, -petal.sway / 2, petal.sway / 3, 0], rotate: [petal.rotation, petal.rotation + 360], opacity: [0, 0.25, 0.25, 0.16, 0] }}
+          animate={{ y: ['-5vh', '108vh'], x: [0, petal.sway, -petal.sway / 2, petal.sway / 3, 0], rotate: [petal.rotation, petal.rotation + 360], opacity: [0, 0.38, 0.38, 0.24, 0] }}
           transition={{ duration: petal.duration, delay: petal.delay, repeat: Infinity, ease: 'linear' }} />
       ))}
     </div>

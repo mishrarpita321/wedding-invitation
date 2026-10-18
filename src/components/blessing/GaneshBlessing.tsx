@@ -20,7 +20,7 @@ export default function GaneshBlessing() {
           निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
         </motion.p>
         <motion.p className="blessing-meaning" variants={item}>
-          With Lord Ganesha’s blessings,<br />and together with their families,<br />You are invited to the wedding <br />of
+          With God's blessings,<br />and together with their families,<br />you are invited to the wedding <br />of
         </motion.p>
         <motion.div variants={item}><Flourish /></motion.div>
       </div>
