@@ -1,0 +1,64 @@
+.scratch-date {
+  grid-column: 1 / -1;
+  width: min(100%, 380px);
+  margin: 28px auto 0;
+  text-align: center;
+}
+.scratch-card {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 2;
+  border: 1px solid var(--gold);
+  background: var(--ivory);
+  box-shadow: 0 7px 22px #573c2910;
+}
+.scratch-details {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px;
+}
+/* Reuse the original hero date and eyebrow typography, including its mobile rule. */
+.scratch-details .eyebrow { margin: 0; }
+.scratch-details .hero-date { margin: 8px 0; }
+.scratch-card canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+.scratch-card.is-revealed canvas { pointer-events: none; touch-action: auto; }
+.scratch-status { font: italic 13px/1.6 var(--display); color: var(--muted); margin: 12px 0 0; }
+.scratch-fallback {
+  min-height: 44px;
+  padding: 8px;
+  border: 0;
+  background: none;
+  color: var(--maroon);
+  font: 10px/1.6 Arial, sans-serif;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+/* Clip only at the viewport's sides; the fountain is free to rise above the card.
+   Unlike overflow: hidden, clip + visible does not create a scroll container. */
+.scratch-celebration {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+.scratch-particle { position: absolute; top: 50%; left: 50%; border-radius: 1px; }
+@media (max-width: 600px) {
+  .scratch-date { margin-top: 0; }
+}

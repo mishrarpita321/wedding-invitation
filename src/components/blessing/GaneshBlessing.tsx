@@ -1,5 +1,6 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Flourish, Ganesh } from '../shared/Ornaments';
+import { Flourish } from '../shared/Ornaments';
+import ganeshLogo from '../../../assets/GaneshLogo.png';
 import './blessing.css';
 
 export default function GaneshBlessing() {
@@ -14,7 +15,7 @@ export default function GaneshBlessing() {
       variants={{ visible: { transition: { staggerChildren: 0.2 } } }}>
       <div className="blessing-content">
         <motion.p className="sanskrit invocation" lang="hi" variants={item}>॥ श्री गणेशाय नमः ॥</motion.p>
-        <motion.div variants={item}><Ganesh /></motion.div>
+        <motion.div variants={item}><img className="ganesh" src={ganeshLogo} alt="Lord Ganesha" /></motion.div>
         <motion.p className="sanskrit shloka" lang="hi" variants={item}>
           वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br />
           निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥

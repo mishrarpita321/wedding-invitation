@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import Button from '@mui/material/Button';
 import { motion, useReducedMotion } from 'framer-motion';
 import { wedding } from '../../data/wedding';
 import { Lotus } from '../shared/Ornaments';
@@ -16,7 +15,6 @@ export default function EnvelopeIntro({ onOpen, onPlayMusic }: EnvelopeIntroProp
   const started = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const reduced = useReducedMotion();
-  const MotionButton = motion.create(Button);
 
   useEffect(() => {
     const previous = document.body.style.overflow;
@@ -46,8 +44,8 @@ export default function EnvelopeIntro({ onOpen, onPlayMusic }: EnvelopeIntroProp
         <motion.p className="eyebrow" initial={{ opacity: reduced ? 1 : 0 }} animate={{ opacity: 1 }} transition={{ delay: reduced ? 0 : 0.7 }}>
           You are cordially invited
         </motion.p>
-        <motion.h1 id="envelope-title" className="envelope-heading" initial={{ opacity: reduced ? 1 : 0 }} animate={{ opacity: opening ? 0 : 1 }} transition={{ delay: reduced || opening ? 0 : 0.9, duration: reduced ? 0 : 0.6 }}>
-          {wedding.bride.firstName}<span>&</span>{wedding.groom.firstName}
+        <motion.h1 id="envelope-title" className="envelope-heading stationery-names" initial={{ opacity: reduced ? 1 : 0 }} animate={{ opacity: opening ? 0 : 1 }} transition={{ delay: reduced || opening ? 0 : 0.9, duration: reduced ? 0 : 0.6 }}>
+          {wedding.bride.firstName}<span className="names-ampersand">&</span>{wedding.groom.firstName}
         </motion.h1>
         <motion.div className="envelope-entrance" initial={reduced ? false : { scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }} transition={{ duration: reduced ? 0 : 1, ease: 'easeOut' }}>
@@ -57,49 +55,7 @@ export default function EnvelopeIntro({ onOpen, onPlayMusic }: EnvelopeIntroProp
           </motion.div>
         </motion.div>
         <motion.div className="envelope-actions" initial={{ opacity: reduced ? 1 : 0 }} animate={{ opacity: 1 }} transition={{ delay: reduced ? 0 : 1.25 }}>
-          <p className="tap-hint" aria-live="polite">{opening ? 'The beginning of our forever…' : 'A little envelope. A lifetime of love.'}</p>
-          <MotionButton
-            variant="outlined"
-            sx={{
-              borderRadius: "40px",
-
-              "& .button-arrow": {
-                display: "inline-block",
-                transition: "transform 0.25s ease",
-              },
-
-              "&:hover .button-arrow": {
-                transform: "translateX(4px)",
-              },
-            }}
-            onClick={open}
-            disabled={opening}
-            whileHover={
-              reduced || opening
-                ? undefined
-                : {
-                  y: -4,
-                  scale: 1.03,
-                }
-            }
-            whileTap={
-              reduced || opening
-                ? undefined
-                : {
-                  y: 0,
-                  scale: 0.97,
-                }
-            }
-            transition={{
-              duration: 0.25,
-              ease: "easeOut",
-            }}
-          >
-            {opening ? "Opening invitation…" : "Open Invitation"}
-            <span className="button-arrow" aria-hidden="true">
-              →
-            </span>
-          </MotionButton>
+          <p className="tap-hint" aria-live="polite">{opening ? 'The beginning of our forever…' : 'TAP THE SEAL TO OPEN'}</p>
           <p className="fine">Made with love, just for you</p>
         </motion.div>
       </div>
