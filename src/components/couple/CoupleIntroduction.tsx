@@ -1,4 +1,5 @@
-﻿import Container from '@mui/material/Container';
+import Container from '@mui/material/Container';
+import bridePhoto from '../../../assets/arpita11.jpg.jpg';
 import { wedding } from '../../data/wedding';
 import { Flourish } from '../shared/Ornaments';
 import { Reveal } from '../shared/Reveal';
@@ -10,8 +11,8 @@ export default function CoupleIntroduction() {
       <Container maxWidth="md">
         <Reveal>
           {/* <p className="eyebrow">Two hearts · Two families · One forever</p> */}
-          <h2 id="families-title">With love & blessings</h2>
-          <p className="section-intro">Together with the blessings of our families,<br />we joyfully invite you to celebrate our wedding.</p>
+          <h2 id="families-title">Meet the Couple</h2>
+          {/* <p className="section-intro">Together with the blessings of our families,<br />we joyfully invite you to celebrate our wedding.</p> */}
         </Reveal>
         <div className="couple-grid">
           <Reveal className="person">
@@ -20,7 +21,8 @@ export default function CoupleIntroduction() {
             <p className="parent-label">Daughter of</p>
             <p>{wedding.bride.parents[1]}<br /><span className="gold">&</span><br />{wedding.bride.parents[0]}</p>
           </Reveal>
-          <div className="couple-amp" aria-hidden="true">&</div>
+          <br />
+          {/* <div className="couple-amp" aria-hidden="true">&</div> */}
           <Reveal className="person">
             <div className="portrait"><Photo name="swagat" alt={`${wedding.groom.name}, the groom`} /></div>
             <p className="eyebrow">The groom</p><h3>{wedding.groom.name}</h3>

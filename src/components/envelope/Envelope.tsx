@@ -15,9 +15,9 @@ export default function Envelope({ opening, onOpen }: EnvelopeProps) {
       <span className="envelope-back" />
       <div className="invitation-card">
         <img className="card-monogram" src={monogram} alt="Arpita and Swagat monogram" />
-        <span style={{fontSize: "8px"}}>TOGETHER WITH THEIR FAMILIES</span>
+        <small>TOGETHER WITH THEIR FAMILIES</small>
         <span className="card-names stationery-names">{wedding.bride.firstName} <span className="names-ampersand">&</span> {wedding.groom.firstName}</span>
-        <span style={{fontSize: "8px"}}>REQUEST THE PLEASURE OF YOUR COMPANY</span>
+        <small>REQUEST THE PLEASURE OF YOUR COMPANY</small>
       </div>
       <span className="envelope-front" />
       <span className="envelope-flap" />

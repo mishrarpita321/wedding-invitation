@@ -277,7 +277,7 @@ em {
 }
 
 .person .eyebrow {
-  font-size: 9px;
+  font-size: 13px;
   margin: 23px 0 10px;
 }
 
@@ -299,7 +299,7 @@ em {
 }
 
 .person .parent-label {
-  font-size: 12px;
+  font-size: 15px;
   color: var(--muted);
   font-style: italic;
   margin-bottom: 7px;
@@ -567,7 +567,7 @@ em {
     margin: 22px 0;
   }
   .hero-details .eyebrow {
-    font-size: 8px;
+    font-size: 10px;
   }
   .hero .flourish {
     margin: 20px auto;

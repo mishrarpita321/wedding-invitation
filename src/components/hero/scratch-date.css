@@ -32,7 +32,7 @@
   cursor: crosshair;
 }
 .scratch-card.is-revealed canvas { pointer-events: none; touch-action: auto; }
-.scratch-status { font: italic 13px/1.6 var(--display); color: var(--muted); margin: 12px 0 0; }
+.scratch-status { font: italic 17px/1.6 var(--display); color: var(--muted); margin: 12px 0 0; }
 .scratch-fallback {
   min-height: 44px;
   padding: 8px;
