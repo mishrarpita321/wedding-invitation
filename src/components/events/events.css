@@ -169,6 +169,18 @@
 .event-avoid ul { margin: 0; }
 .avoid-swatch { width: 17px; height: 17px; border-color: #82634055; }
 .no-restriction { font-size: 12px; margin-top: 0; }
+.event-dress-code-paired {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 7.5rem), 1fr));
+  align-items: start;
+  gap: 12px 16px;
+}
+.event-dress-code-paired > * { min-width: 0; }
+.event-dress-code-paired .preferred-swatches { padding-left: 28px; margin: 6px 0 0; flex-wrap: wrap; }
+.event-dress-code-paired .event-avoid { display: block; padding-left: 0; margin: 0; }
+.event-dress-code-paired .event-avoid ul { margin-top: 6px; }
+.event-dress-code-paired .event-avoid li { max-width: 100%; overflow-wrap: anywhere; }
+.event-dress-code-paired .avoid-swatch { flex-shrink: 0; }
 .event-actions { display: grid; grid-template-columns: 1fr 1.3fr; gap: 10px; margin-top: 18px; }
 @media (max-width: 600px) { .event-card-body { padding: 20px 18px; } }
 @media (max-width: 350px) { .event-actions { grid-template-columns: 1fr; } }

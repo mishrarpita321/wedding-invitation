@@ -17,6 +17,7 @@ export default function EventTimelineCard({ event, index }: { event: WeddingEven
   const reduced = useReducedMotion();
   const [imageFailed, setImageFailed] = useState(false);
   const image = suppliedImagePaths.has(`/public${event.image}`) ? event.image : undefined;
+  const pairedDressCode = event.dressCode.colors.length > 0 && event.dressCode.avoid.length > 0;
 
   return (
     <motion.div className="event-card-reveal" initial={reduced ? false : { opacity: 0, y: 36 }}
@@ -33,11 +34,13 @@ export default function EventTimelineCard({ event, index }: { event: WeddingEven
           <p className="event-detail event-date"><DetailIcon kind="calendar" /><span>{event.day} · <strong>{event.date}</strong></span></p>
           <p className="event-detail"><DetailIcon kind="clock" /><span>{event.time}</span></p>
           <p className="event-detail"><DetailIcon kind="pin" /><span><strong>{event.venue}</strong><br />{event.address}</span></p>
-          <div className="event-dress-code">
+          <div className={`event-dress-code${pairedDressCode ? ' event-dress-code-paired' : ''}`}>
+            <div className="event-dress-preferred">
             <p className="event-detail"><DetailIcon kind="dress" /><span>{event.dressCode.preferred}</span></p>
             {!!event.dressCode.colors.length && <div className="preferred-swatches" aria-label="Suggested colour palette">
               {event.dressCode.colors.map(color => <span key={color} style={{ backgroundColor: color }} />)}
             </div>}
+            </div>
             {event.dressCode.avoid.length ? <div className="event-avoid"><span>Kindly avoid</span><ul>
               {event.dressCode.avoid.map(color => <li key={color.name}><span className="avoid-swatch" style={{ backgroundColor: color.color }} aria-hidden="true" />{color.name}</li>)}
             </ul></div> : <p className="no-restriction">No specific colour restriction.</p>}
