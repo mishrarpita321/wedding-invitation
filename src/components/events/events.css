@@ -69,7 +69,7 @@
   font-family: Arial, sans-serif;
   font-variant-numeric: lining-nums tabular-nums;
   border: 1px solid var(--line);
-  border-radius: 3px;
+  border-radius: 35px;
   overflow: hidden;
   box-shadow: 0 7px 25px #34272106;
 }
@@ -89,16 +89,7 @@
   background: linear-gradient(transparent 50%, #21140c70);
   pointer-events: none;
 }
-.event-image-label {
-  position: absolute;
-  left: 24px;
-  bottom: 18px;
-  z-index: 1;
-  color: var(--ivory);
-  font: 10px Arial, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-}
+
 .event-number { position: absolute; right: 24px; bottom: 14px; color: var(--ivory); opacity: 0.7; z-index: 1; font: 20px/1 Arial, sans-serif; }
 .event-artwork { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #e8d4ad; background: var(--maroon); }
 .artwork-mehendi { background: #4e614e; }
@@ -113,10 +104,11 @@
 
 .event-card-body { padding: 26px; }
 .event-card-body h3 { font-size: clamp(30px, 3vw, 37px); line-height: 1.1; margin: 22px 0 20px; }
-.event-detail { display: flex; align-items: flex-start; gap: 11px; font-size: 13px; line-height: 1.7; color: var(--muted); margin: 0 0 16px; }
+.event-detail { display: flex; align-items: center; gap: 11px; font-size: 13px; line-height: 1.7; color: var(--muted); margin: 0 0 16px; }
 .event-detail > span { min-width: 0; overflow-wrap: anywhere; }
 .event-detail strong { font-weight: 400; color: var(--ink); }
 .detail-icon.MuiSvgIcon-root { width: 19px; height: 19px; flex-shrink: 0; color: var(--gold); margin-top: 2px; }
+.event-detail > .detail-icon.MuiSvgIcon-root { margin: 0; display: block; }
 .event-date { font-size: 11px; line-height: 1.8; letter-spacing: 0.02em; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
 .event-date strong { font-size: 13px; color: var(--maroon); }
 .event-note { font: italic 21px var(--display); color: var(--maroon); margin: -8px 0 22px; }
@@ -148,7 +140,7 @@
   .event-card-body { padding: 22px 20px; }
   .event-card-body h3 { font-size: 31px; }
   .event-image { height: 175px; }
-  .event-image-label { left: 20px; font-size: 9px; }
+  
   .event-number { right: 20px; }
 }
 
@@ -158,3 +150,26 @@
   .event-detail { font-size: 12px; gap: 9px; }
   .event-date strong { font-size: 12px; }
 }
+
+/* Compact stationery hierarchy; a single divider groups attire. */
+.event-card.MuiPaper-root { background: linear-gradient(135deg, #fcf8f0, #f6eddf); border-color: #b9955570; }
+.event-card-body { padding: 22px; }
+.event-card-body h3 { margin: 0 0 12px; }
+.event-detail { gap: 9px; line-height: 1.55; margin-bottom: 10px; }
+.event-detail strong { font-weight: 600; }
+.event-date { color: var(--maroon); font-size: 12px; padding-bottom: 0; border-bottom: 0; }
+.event-date strong { font-size: inherit; font-weight: 400; }
+.event-note { font-size: 19px; margin: 0 0 12px 28px; }
+.event-dress-code { padding-top: 13px; margin-top: 14px; }
+.event-dress-code .event-detail { margin-bottom: 6px; }
+.preferred-swatches { margin: 9px 0; gap: 8px; }
+.preferred-swatches > span { width: 18px; height: 18px; }
+.event-avoid { margin: 6px 0 0; font-size: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
+.event-avoid ul { margin: 0; }
+.avoid-swatch { width: 17px; height: 17px; border-color: #82634055; }
+.no-restriction { font-size: 12px; margin-top: 0; }
+.event-actions { display: grid; grid-template-columns: 1fr 1.3fr; gap: 10px; margin-top: 18px; }
+.rsvp-note { font: italic 12px/1.4 var(--display); color: var(--muted); margin: 7px 0 0; }
+@media (max-width: 600px) { .event-card-body { padding: 20px 18px; } }
+@media (max-width: 350px) { .event-actions { grid-template-columns: 1fr; } }
+.event-actions .invitation-action { padding-inline: 8px; font-size: 15px; white-space: nowrap; }

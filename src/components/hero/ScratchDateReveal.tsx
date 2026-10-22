@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { wedding } from '../../data/wedding';
+import { pressFeedback } from '../../utils/press';
 import DateConfetti from './DateConfetti';
+import DetailIcon from '../shared/DetailIcon';
+import { downloadWeddingCalendar } from '../../utils/calendar';
 import './scratch-date.css';
 
 const date = new Date(wedding.date);
@@ -18,6 +21,7 @@ export default function ScratchDateReveal() {
   const celebrated = useRef(false);
   const [celebrating, setCelebrating] = useState(false);
   const [revealed, setRevealed] = useState(false);
+  const [surfaceGone, setSurfaceGone] = useState(false);
   const reduced = useReducedMotion();
 
   useEffect(() => {
@@ -99,6 +103,7 @@ export default function ScratchDateReveal() {
         <motion.canvas ref={canvas} width={600} height={300} aria-hidden="true"
           animate={{ opacity: revealed ? 0 : 1 }} transition={{ duration: reduced ? 0 : 0.7 }}
           onAnimationComplete={() => {
+            if (revealed) setSurfaceGone(true);
             if (revealed && !reduced && !celebrated.current) {
               celebrated.current = true;
               setCelebrating(true);
@@ -113,8 +118,31 @@ export default function ScratchDateReveal() {
           onPointerMove={scratch} onPointerUp={stop} onPointerCancel={stop} onLostPointerCapture={stop} />
         {celebrating && !reduced && <DateConfetti onComplete={() => setCelebrating(false)} />}
       </div>
-      <p className="scratch-status" role="status">{revealed ? 'Save the date — we can’t wait to celebrate with you!' : 'Gently scratch the golden surface'}</p>
-      {!revealed && <button className="scratch-fallback" type="button" onClick={reveal}>Reveal date without scratching</button>}
+      {!revealed && <div className="scratch-choices">
+        <p className="scratch-status">Gently scratch the golden surface</p>
+        <div className="scratch-or"><span>OR</span></div>
+        <motion.button className="invitation-action scratch-fallback cta-polish" type="button" onClick={reveal}
+          whileHover={reduced ? undefined : { y: -2 }} whileTap={pressFeedback(reduced)}
+          transition={{ type: 'tween', duration: reduced ? 0 : 0.16, ease: 'easeOut' }}>Reveal date without scratching</motion.button>
+      </div>}
+      <div role="status" aria-live="polite">
+        {surfaceGone && <motion.div initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: reduced ? 0 : 0.3, delay: reduced ? 0 : 0.12 }}>
+          <p className="scratch-status scratch-saved">Save the Date</p>
+          <motion.button className="invitation-action invitation-action-primary calendar-action cta-polish" type="button" onClick={downloadWeddingCalendar}
+            initial={reduced ? false : { opacity: 0, y: 10, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: 'tween', ease: 'easeOut', duration: reduced ? 0 : 0.35, delay: reduced ? 0 : 0.35,
+              backgroundColor: { duration: reduced ? 0 : 0.16, delay: 0 }, boxShadow: { duration: reduced ? 0 : 0.16, delay: 0 },
+              '--press-icon-shift': { duration: reduced ? 0 : 0.16, delay: 0 },
+              y: { duration: reduced ? 0 : 0.18, delay: 0 }, scale: { duration: reduced ? 0 : 0.18, delay: 0 } }}
+            whileHover={reduced ? { y: 0, scale: 1 } : { y: -2, scale: 1.015, transition: { type: 'tween', duration: 0.18, delay: 0, ease: 'easeOut' } }}
+            whileTap={pressFeedback(reduced, 0.97)}
+            >
+            <DetailIcon kind="calendar" />Add to Calendar
+          </motion.button>
+          <p className="scratch-postscript">We can’t wait to celebrate with you!</p>
+        </motion.div>}
+      </div>
     </motion.div>
   );
 }

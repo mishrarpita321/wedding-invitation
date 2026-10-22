@@ -1,1 +1,31 @@
-{"name":"arpita-swagat-invitation","private":true,"version":"1.0.0","type":"module","scripts":{"dev":"vite --host 0.0.0.0","build":"tsc -b && vite build","preview":"vite preview --host 0.0.0.0","optimize:photos":"node scripts/optimize-photos.mjs"},"dependencies":{"@emotion/react":"^11.14.0","@emotion/styled":"^11.14.0","@mui/lab":"^7.0.0-beta.17","@mui/material":"^7.3.0","framer-motion":"^12.23.0","react":"^19.1.0","react-dom":"^19.1.0"},"devDependencies":{"@playwright/test":"^1.56.0","@types/react":"^19.1.0","@types/react-dom":"^19.1.0","@vitejs/plugin-react":"^4.7.0","sharp":"^0.35.5","typescript":"~5.8.3","vite":"^6.1.0"}}
+{
+  "name": "arpita-swagat-invitation",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "optimize:photos": "node scripts/optimize-photos.mjs"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/lab": "^7.0.0-beta.17",
+    "@mui/material": "^7.3.0",
+    "framer-motion": "^12.23.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "sharp": "^0.35.5",
+    "typescript": "~5.8.3",
+    "vite": "^6.1.0"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

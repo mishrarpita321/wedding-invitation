@@ -132,3 +132,10 @@
   .envelope:not(.is-open) .envelope-flap { animation: none; }
   .envelope-flap, .invitation-card { transition-delay: 0s; }
 }
+
+.wax-seal { --press-background: transparent; --press-shadow: 0 1px 3px #42251f55, inset 2px 3px 5px #36081388; transition: box-shadow .12s ease-out, filter .12s ease-out; }
+.wax-seal:active:not(:disabled) { filter: brightness(.94); box-shadow: 0 1px 3px #42251f55, inset 2px 3px 5px #36081388; }
+@media (prefers-reduced-motion: reduce) {
+  .wax-seal { transition: none; }
+  .wax-seal:not(:disabled) { transform: none !important; }
+}

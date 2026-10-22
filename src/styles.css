@@ -697,3 +697,61 @@ em {
   font-size: 14px;
   color: var(--muted);
 }
+
+/* Shared stationery actions for event cards and the date reveal. */
+.invitation-action {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 46px; padding: 11px 13px; border: 1px solid var(--gold); border-radius: 3px;
+  background: transparent; color: var(--maroon); font: 600 16px/1.2 var(--display);
+  text-decoration: none; text-align: center; cursor: pointer;
+  transition: background-color .2s, box-shadow .2s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .invitation-action:hover { background: #b9955514; box-shadow: 0 3px 12px #573c290a; }
+  .invitation-action-primary:hover { background: #571722; }
+}
+.invitation-action-primary { background: var(--maroon); border-color: var(--maroon); color: var(--ivory); }
+.invitation-action:disabled { cursor: default; opacity: .7; }
+.invitation-action[aria-disabled="true"] { cursor: default; opacity: .7; }
+.cta-polish { transition: background-color .18s ease-out, border-color .18s ease-out, box-shadow .18s ease-out; }
+.cta-polish .cta-icon, .calendar-action.cta-polish > .detail-icon { transition: transform .18s ease-out; }
+@media (hover: hover) and (pointer: fine) {
+  .cta-polish:hover { border-color: var(--gold); box-shadow: 0 5px 15px #573c291c; }
+  .cta-polish.invitation-action-primary:hover { border-color: #571722; box-shadow: 0 6px 17px #57172226; }
+  .directions-action:hover .cta-icon { transform: translate(2px, -2px); }
+  .calendar-action.cta-polish:hover > .detail-icon { transform: translateY(-1px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-polish { transform: none !important; }
+  .cta-polish, .cta-polish .cta-icon, .calendar-action.cta-polish > .detail-icon { transition: none; }
+  .directions-action:hover .cta-icon, .calendar-action.cta-polish:hover > .detail-icon { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .invitation-action { transition: none; } }
+
+/* Touch-first feedback: :active releases on lift or cancellation, unlike hover. */
+.invitation-action, .wax-seal, .music-button.MuiIconButton-root, .locations .text-link {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.invitation-action { --press-background: #b9955526; --press-shadow: inset 0 1px 3px #573c291a; }
+.invitation-action-primary { --press-background: #571722; --press-shadow: inset 0 2px 4px #36081333; }
+.cta-polish { --press-icon-shift: 0; }
+.directions-action .cta-icon { transform: translate(calc(var(--press-icon-shift) * 2px), calc(var(--press-icon-shift) * -2px)); }
+.calendar-action.cta-polish > .detail-icon { transform: translateY(calc(var(--press-icon-shift) * -1px)); }
+.locations .text-link { transition: transform .14s ease-out, background-color .14s ease-out, box-shadow .14s ease-out; }
+.music-button.MuiIconButton-root { --press-background: var(--paper); --press-shadow: inset 0 1px 4px #573c2926; }
+.locations .text-link > span { display: inline-block; transition: transform .12s ease-out; }
+.invitation-action.cta-polish:active { background-color: #b9955526; border-color: var(--gold); box-shadow: inset 0 1px 3px #573c291a; }
+.invitation-action.cta-polish.invitation-action-primary:active { background-color: #571722; border-color: #571722; box-shadow: inset 0 2px 4px #36081333; }
+.directions-action:active .cta-icon, .locations .text-link:active > span { transform: translate(2px, -2px); }
+.calendar-action.cta-polish:active > .detail-icon { transform: translateY(-1px); }
+.locations .text-link:active { transform: translateY(1px) scale(.98); background-color: #b995551a; }
+.music-button.MuiIconButton-root:active { transform: translateY(1px) scale(.96); background-color: var(--paper); box-shadow: inset 0 1px 4px #573c2926; }
+@media (prefers-reduced-motion: reduce) {
+  .music-button.MuiIconButton-root { transform: none !important; }
+  .locations .text-link, .music-button.MuiIconButton-root, .locations .text-link > span { transition: none; }
+  .locations .text-link:active, .music-button.MuiIconButton-root:active,
+  .directions-action:active .cta-icon, .locations .text-link:active > span,
+  .calendar-action.cta-polish:active > .detail-icon { transform: none; }
+}

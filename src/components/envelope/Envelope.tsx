@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { pressFeedback } from '../../utils/press';
 import { wedding } from '../../data/wedding';
 import sealLogo from '../../../assets/LogoOnWaxSeal.png';
 import monogram from '../../../assets/ASLogo.png';
@@ -25,9 +26,9 @@ export default function Envelope({ opening, onOpen }: EnvelopeProps) {
         <motion.button type="button" className="wax-seal" onClick={onOpen} disabled={opening}
           aria-label="Open Arpita and Swagat’s wedding invitation"
           animate={opening ? { opacity: 0, scale: reduced ? 1 : 1.15 } : reduced ? {} : { y: [0, -2, 0] }}
-          transition={opening ? { duration: reduced ? 0 : 0.4 } : { duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
-          whileHover={reduced || opening ? undefined : { scale: 1.04 }}
-          whileTap={reduced || opening ? undefined : { scale: 0.96 }}>
+          transition={opening ? { duration: reduced ? 0 : 0.4 } : { type: 'tween', duration: 0.16, ease: 'easeOut', y: { duration: 3.8, repeat: Infinity, ease: 'easeInOut' } }}
+          whileHover={reduced || opening ? undefined : { scale: 1.04, transition: { type: 'tween', duration: 0.16, repeat: 0 } }}
+          whileTap={opening ? undefined : pressFeedback(reduced, 0.95)}>
           <img src={sealLogo} alt="" draggable={false} />
         </motion.button>
       </div>

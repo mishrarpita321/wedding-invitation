@@ -62,3 +62,13 @@
 @media (max-width: 600px) {
   .scratch-date { margin-top: 0; }
 }
+.scratch-choices .scratch-status { color: var(--maroon); font-size: 21px; line-height: 1.3; margin-top: 16px; }
+.scratch-or { display: flex; align-items: center; gap: 12px; width: min(100%, 260px); margin: 13px auto; color: var(--muted); font: 10px/1.4 Arial, sans-serif; letter-spacing: .18em; }
+.scratch-or::before, .scratch-or::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.scratch-fallback.invitation-action { padding: 11px 18px; font: 500 17px/1.3 var(--display); text-decoration: none; background: #b9955509; }
+.scratch-saved { font: 12px/1.5 Arial, sans-serif; text-transform: uppercase; letter-spacing: .2em; color: var(--maroon); margin-top: 18px; }
+.scratch-postscript { font: italic 16px/1.4 var(--display); color: var(--muted); margin: 6px 0 14px; }
+.calendar-action { min-width: 220px; box-shadow: 0 4px 14px #573c2912; }
+.calendar-action .detail-icon { color: #e5c992; }
+.calendar-action { margin-top: 14px; }
+.scratch-postscript { margin-top: 12px; }

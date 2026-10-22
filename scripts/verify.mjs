@@ -33,13 +33,13 @@ async function configure(page) {
 async function openInvitation(page, viaCTA = false) {
   await page.goto(baseURL, { waitUntil: 'domcontentloaded' });
   await page.getByRole('dialog').waitFor();
-  await page.getByRole('button', { name: 'Open Invitation', exact: true }).waitFor();
+  await page.getByRole('button', { name: /Open Arpita/ }).waitFor();
   assert.equal(await page.locator('main').count(), 0);
   assert.equal(await page.locator('.ganesh-blessing, .flower-petals').count(), 0);
   assert.equal(await page.locator('audio').count(), 1);
   assert.equal(await page.locator('audio').evaluate(audio => audio.paused), true);
   await page.evaluate(() => { window.__testAudio = document.querySelector('audio'); });
-  if (viaCTA) await page.getByRole('button', { name: 'Open Invitation', exact: true }).click();
+  if (viaCTA) await page.getByRole('button', { name: /Open Arpita/ }).click();
   else {
     await page.getByRole('button', { name: /Open Arpita/ }).focus();
     await page.keyboard.press('Enter');
@@ -66,7 +66,7 @@ try {
     assert.equal(await page.locator('.event-card').count(), 5);
     assert.equal(await page.locator('.event-artwork').count(), 5);
     assert.equal(await page.locator('.event-image img').count(), 0);
-    assert.equal(await page.locator('.event-card .text-link').count(), 5);
+    assert.equal(await page.locator('.event-actions a').count(), 5);
     assert.equal(await page.locator('.locations .text-link').count(), 4);
     assert.equal(await page.locator('.flower-petal').count(), width < 600 ? 9 : 16);
     assert.equal(await page.locator('.flower-petals').evaluate(el => getComputedStyle(el).pointerEvents), 'none');
