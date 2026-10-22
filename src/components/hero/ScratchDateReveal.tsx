@@ -46,7 +46,7 @@ export default function ScratchDateReveal() {
     ctx.fillStyle = '#6e1f2a';
     ctx.textAlign = 'center';
     ctx.font = 'italic 30px Georgia';
-    ctx.fillText('Scratch to reveal our date', 300, 145);
+    ctx.fillText('Gently cratch to reveal our date', 300, 145);
     ctx.font = '14px Arial';
     ctx.fillText('A little surprise, just for you', 300, 184);
   }, []);
@@ -119,7 +119,7 @@ export default function ScratchDateReveal() {
         {celebrating && !reduced && <DateConfetti onComplete={() => setCelebrating(false)} />}
       </div>
       {!revealed && <div className="scratch-choices">
-        <p className="scratch-status">Gently scratch the golden surface</p>
+        {/* <p className="scratch-status">Gently scratch the golden surface</p> */}
         <div className="scratch-or"><span>OR</span></div>
         <motion.button className="invitation-action scratch-fallback cta-polish" type="button" onClick={reveal}
           whileHover={reduced ? undefined : { y: -2 }} whileTap={pressFeedback(reduced)}

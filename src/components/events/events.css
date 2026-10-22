@@ -160,6 +160,7 @@
 .event-date { color: var(--maroon); font-size: 12px; padding-bottom: 0; border-bottom: 0; }
 .event-date strong { font-size: inherit; font-weight: 400; }
 .event-note { font-size: 19px; margin: 0 0 12px 28px; }
+.event-card-body h3 .event-note { margin: 0; }
 .event-dress-code { padding-top: 13px; margin-top: 14px; }
 .event-dress-code .event-detail { margin-bottom: 6px; }
 .preferred-swatches { margin: 9px 0; gap: 8px; }

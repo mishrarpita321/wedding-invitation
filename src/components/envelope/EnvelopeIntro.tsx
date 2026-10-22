@@ -31,7 +31,7 @@ export default function EnvelopeIntro({ onOpen, onPlayMusic }: EnvelopeIntroProp
     setOpening(true);
     // Keep playback inside this user gesture for mobile browser permission.
     onPlayMusic();
-    timer.current = setTimeout(onOpen, reduced ? 250 : 3600);
+    timer.current = setTimeout(onOpen, reduced ? 250 : 5000);
   }
 
   return (

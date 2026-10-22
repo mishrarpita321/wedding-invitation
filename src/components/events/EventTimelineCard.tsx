@@ -30,7 +30,6 @@ export default function EventTimelineCard({ event, index }: { event: WeddingEven
         <div className="event-card-body">
           <h3 id={`event-${event.id}`}>{event.title}</h3>
           <p className="event-detail event-date"><DetailIcon kind="calendar" /><span>{event.day} · <strong>{event.date}</strong></span></p>
-          {event.subtitle && <p className="event-note">{event.subtitle}</p>}
           <p className="event-detail"><DetailIcon kind="clock" /><span>{event.time}</span></p>
           <p className="event-detail"><DetailIcon kind="pin" /><span><strong>{event.venue}</strong><br />{event.address}</span></p>
           <div className="event-dress-code">
