@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
+    "test:rsvp": "node scripts/verify-rsvp.mjs",
+    "test:rsvp-logic": "node scripts/verify-rsvp-logic.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "optimize:photos": "node scripts/optimize-photos.mjs"
   },

@@ -3,6 +3,8 @@ import { wedding } from '../../data/wedding';
 import { Lotus, Flourish } from '../shared/Ornaments';
 import { Photo } from '../shared/Photo';
 import { pressFeedback } from '../../utils/press';
+import { useState } from 'react';
+import RsvpDialog from '../rsvp/RsvpDialog';
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 18 },
@@ -15,6 +17,7 @@ const photoReveal: Variants = {
 
 export default function Footer() {
   const reduced = useReducedMotion();
+  const [rsvpOpen, setRsvpOpen] = useState(false);
   return (
     <footer className="section closing">
       <motion.div className="closing-composition" initial={reduced ? false : 'hidden'} whileInView="visible"
@@ -35,14 +38,14 @@ export default function Footer() {
             transition={{ duration: reduced ? 0 : 0.5, ease: 'easeOut' }}>
             <p className="footer-rsvp-prompt">Kindly let us know if you’ll be joining us.</p>
             <motion.button className="invitation-action invitation-action-primary cta-polish" type="button"
-              aria-disabled="true" aria-describedby="rsvp-availability"
+              onClick={() => setRsvpOpen(true)} aria-haspopup="dialog"
               whileHover={reduced ? undefined : { y: -2 }} whileTap={pressFeedback(reduced, 0.97)}
               transition={{ type: 'tween', duration: reduced ? 0 : 0.18, ease: 'easeOut' }}>RSVP</motion.button>
-            <p id="rsvp-availability" className="footer-rsvp-note">RSVP will be available soon.</p>
           </motion.div>
           <Flourish />
         </motion.div>
       </motion.div>
+      <RsvpDialog open={rsvpOpen} onClose={() => setRsvpOpen(false)} />
     </footer>
   );
 }

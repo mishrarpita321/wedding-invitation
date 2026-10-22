@@ -54,4 +54,10 @@ node scripts/verify.mjs
 
 The checks use Chrome at its default Windows location. Set `CHROME_PATH` for another installation and `TEST_URL` for a different preview URL. Tests cover 320, 375, 390, 430, 900 and 1440px widths, both opening triggers, keyboard access, the blessing-first scroll flow, one audio instance, music controls, exact event/family details, maps, stable petals, mobile/desktop timeline arrangement, photo loading, overflow, refresh, reduced motion, unavailable audio, rejected playback and IST countdown boundaries. Screenshots are saved in `test-results/`. Network fonts are replaced with system fallbacks during these checks.
 
-Build and deploy `dist/` to a static host. This local project has not been published. Google Fonts have system-serif fallbacks when unavailable.
+Build and deploy `dist/` to a static host such as Vercel. Google Fonts have system-serif fallbacks when unavailable.
+
+The footer RSVP opens a mobile-first dialog with a temporary frontend-only submission mock. It waits 850ms before showing the attending or decline confirmation. No responses are stored, sent to an API, or logged. Run `npm run dev` to experience the entire flow; no backend or environment configuration is needed.
+
+The future integration boundary is `submitRsvp(payload)` in `src/utils/rsvp.ts`. To test a failure locally, change `MOCK_FAILURES` from `0` to `1` in that file and reload: the first submission fails after the delay, preserves the form, and **Try Again** succeeds. Restore `0` afterward. Failure simulation is disabled in production builds. Cancel, close, Escape and Done reset the form after closing; backdrop clicks are ignored so accidental taps do not lose an in-progress form.
+
+With the Vite dev server running, run `npm run test:rsvp` for browser flows at 360, 390, 430 (reduced motion), and 1440px, including validation, guest count, selection, decline, loading, animation, duplicate prevention, error/retry, focus, short-screen scrolling and reopening. Run `npm run test:rsvp-logic` for payload/validation and mock submission checks. Browser tests instrument the mock only in the test browser and verify that RSVP makes no API requests. A shortened viewport approximates keyboard space; check a real phone keyboard as well. There is no lint script in this project.

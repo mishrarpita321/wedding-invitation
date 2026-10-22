@@ -505,7 +505,6 @@ em {
 .footer-rsvp { margin-top: 28px; text-align: center; }
 .footer-rsvp-prompt { margin: 0 0 14px; font: 15px/1.6 var(--display); color: var(--muted); }
 .footer-rsvp .invitation-action { min-width: 160px; }
-.footer-rsvp-note { margin: 8px 0 0; font: italic 12px/1.4 var(--display); color: var(--muted); }
 
 .music-button.MuiIconButton-root {
   position: fixed;
