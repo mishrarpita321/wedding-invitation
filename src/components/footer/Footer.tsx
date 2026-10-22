@@ -24,12 +24,11 @@ export default function Footer() {
           <h2>We can’t wait to<br /><em>celebrate with you.</em></h2>
         </motion.div>
         <motion.div className="closing-photo" variants={reduced ? undefined : photoReveal}>
-          <Photo name="together1" alt="Arpita and Swagat smiling at each other and holding hands" />
+          <Photo name="footer" alt="Arpita and Swagat smiling at each other outdoors" />
         </motion.div>
         <motion.div className="closing-message" variants={reduced ? undefined : reveal}>
-          <p>Your presence will make our<br />celebrations even more special.</p>
           <p className="closing-names">{wedding.bride.firstName} & {wedding.groom.firstName}</p>
-          <p className="eyebrow">{wedding.compactDate}</p>
+          <p className="eyebrow">{wedding.dateLabel}</p>
           <Flourish />
         </motion.div>
       </motion.div>

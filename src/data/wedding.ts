@@ -7,9 +7,9 @@ export const wedding = {
   timeZoneLabel: 'IST',
   compactDate: '10 · 02 · 2027',
   location: 'Bhubaneswar, Odisha',
-  residence: 'D/23, Mason Paradise, Patia, Bhubaneswar',
+  residence: 'D/23, Mason Paradise, Inajna, near Patia Station, Bhubaneswar',
   audio: '/assets/wedding-music.mp3',
-  photos: { together: '/assets/together.webp', together1: '/assets/together1.webp', arpita: '/assets/arpita.webp', swagat: '/assets/swagat.webp' },
+  photos: { footer: '/assets/footer.webp', together: '/assets/together.webp', together1: '/assets/together1.webp', arpita: '/assets/arpita.webp', swagat: '/assets/swagat.webp' },
 };
 
 export type EventId = 'engagement' | 'mehendi' | 'haldi' | 'wedding' | 'reception';
@@ -37,7 +37,7 @@ export interface WeddingEvent {
 export const events: WeddingEvent[] = [
   {
     id: 'engagement', title: 'Engagement', day: 'Thursday', date: '28 January 2027',
-    time: '1:00 PM onwards', venue: 'Angan Horizon', address: 'Bhubaneswar',
+    time: '1:00 PM onwards', venue: 'Angan Horizon', address: 'Nandankanan Road, Patia Square, Bhubaneswar, Odisha',
     mapsQuery: 'Angan Horizon, Bhubaneswar', image: '/assets/events/engagement.webp',
     dressCode: { preferred: 'Dress in colours you love.', colors: [], avoid: [{ name: 'Violet', color: '#6824a1' }, { name: 'Beige', color: '#ac906b' }] },
   },
@@ -55,7 +55,7 @@ export const events: WeddingEvent[] = [
   },
   {
     id: 'wedding', title: 'Wedding', day: 'Wednesday', date: wedding.dateLabel,
-    time: `${wedding.timeLabel} onwards`, venue: 'Ruby by Occasions', address: 'Bhubaneswar',
+    time: `${wedding.timeLabel} onwards`, venue: 'Ruby by Occasions', address: 'Cuttack - Puri Bypass Rd, near Shirdi Sai Mandira, Bhubaneswar, Odisha',
     mapsQuery: 'Ruby by Occasions, Bhubaneswar', image: '/assets/events/wedding.webp', subtitle: 'The day we say “I do”',
     dressCode: { preferred: 'Anything preferred.', colors: [], avoid: [{ name: 'Red', color: '#FF2C2C' }] },
   },

@@ -329,54 +329,69 @@ em {
 }
 
 .countdown.section {
-  padding: clamp(32px, 4vw, 48px) 20px;
-  background: var(--maroon);
+  padding: clamp(36px, 4vw, 50px) 16px;
+  background: radial-gradient(ellipse at 50% 0%, #962d3940, transparent 60%), var(--maroon);
   color: var(--ivory);
-  border-block: 1px solid var(--gold);
+  border-block: 1px solid #b9955599;
 }
-
+.countdown-composition { max-width: 560px; margin-inline: auto; }
 .countdown .eyebrow {
-  color: color-mix(in srgb, var(--gold) 65%, var(--ivory));
-  margin-bottom: 10px;
+  color: var(--gold);
+  font-size: clamp(10px, 1.8vw, 9px);
+  line-height: 1.6;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
-
 .countdown h2 {
   color: var(--ivory);
-  font-size: clamp(34px, 4vw, 48px);
+  font-size: clamp(30px, 5vw, 40px);
+  line-height: 1.15;
   margin-bottom: 0;
 }
-
-.countdown .fine {
-  color: var(--ivory);
-  opacity: .8;
-  margin: 0;
+.countdown-ornament { color: var(--gold); margin: 16px auto 20px; width: 30px; }
+.countdown-ornament svg { display: block; width: 100%; height: auto; }
+.countdown .clock {
+  --clock-gap: clamp(8px, 2.5vw, 24px);
+  --clock-size: clamp(28px, 6vw, 34px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--clock-gap);
+  width: min(100%, 390px);
+  margin: 0 auto;
 }
-
-.clock {
-  display: flex;
-  justify-content: center;
-  gap: clamp(15px,4vw,55px);
-  margin: 22px 0 20px;
+.countdown .clock > div { position: relative; min-width: 0; }
+.countdown .clock > div:not(:last-child)::after {
+  content: ':';
+  position: absolute;
+  top: 0;
+  right: calc(var(--clock-gap) / -2);
+  transform: translateX(50%);
+  display: grid;
+  align-items: center;
+  height: calc(var(--clock-size) * 1.1);
+  color: var(--gold);
+  opacity: .65;
+  font: 18px/1 var(--display);
 }
-
-.clock>div {
-  min-width: 42px;
-}
-
-.clock span {
+.countdown .clock span {
   display: block;
-  font: clamp(35px,7vw,65px) var(--display);
+  font: var(--clock-size)/1.1 var(--display);
+  font-variant-numeric: lining-nums tabular-nums;
   color: var(--ivory);
-  line-height: 1.1;
-  font-variant-numeric: tabular-nums;
 }
-
-.clock small {
-  font: 8px Arial,sans-serif;
-  letter-spacing: .16em;
+.countdown .clock small {
+  display: block;
+  margin-top: 7px;
+  font: clamp(8px, 1.8vw, 9px)/1.4 Arial, sans-serif;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--gold) 65%, var(--ivory));
+  color: color-mix(in srgb, var(--gold) 75%, var(--ivory));
 }
+.countdown-date { margin-top: 26px; }
+.countdown-date p { margin: 0; font: 12px/1.5 var(--display); font-family: sans-serif; }
+.countdown-date .countdown-place { margin-top: 3px; font-size: 11px; color: #faf6eeb3; font-family: Arial, sans-serif;}
+.countdown-message { font: 21px/1.5 var(--display); margin: 0; }
 
 .locations {
   border-top: 1px solid var(--line);
@@ -413,7 +428,7 @@ em {
 }
 
 .closing.section {
-  padding: clamp(48px,6vw,80px) 20px;
+  padding: clamp(44px,6vw,80px) 20px;
 }
 
 .closing-composition {
@@ -460,6 +475,7 @@ em {
 .closing .section-lotus {
   width: 45px;
   height: 32px;
+  margin-bottom: 16px;
 }
 
 .closing h2 {
@@ -467,21 +483,19 @@ em {
   margin-bottom: 0;
 }
 
-.closing-message>p:not(.eyebrow):not(.closing-names) {
-  font-size: 15px;
-  color: var(--muted);
-  margin-bottom: 0;
-}
+.closing-intro .eyebrow { margin-bottom: 14px; }
 
 .closing-names {
-  font: 34px var(--display);
-  font-family: "Great Vibes", cursiv;;
+  font: 34px/1.2 var(--display);
   color: var(--maroon);
-  margin: 22px 0 12px;
+  margin: 0 0 8px;
 }
 
 .closing-message .eyebrow {
   margin-bottom: 0;
+  font-size: 9px;
+  letter-spacing: .18em;
+  color: var(--muted);
 }
 
 .closing-message .flourish {
@@ -628,7 +642,7 @@ em {
     margin-bottom: 10px;
   }
   .closing .eyebrow {
-    font-size: 8px;
+    font-size: 10px;
   }
   .clock {
     gap: 22px;
@@ -661,15 +675,19 @@ em {
   .closing-composition {
     display: flex;
     flex-direction: column;
-    gap: clamp(24px,4vw,36px);
+    gap: 0;
   }
   .closing-intro,
   .closing-message {
     align-self: center;
   }
+  .closing-intro { margin-bottom: 28px; }
+  .closing h2 { font-size: clamp(32px,8.8vw,38px); }
   .closing-photo {
-    width: min(82%,440px);
+    width: min(74%,400px);
+    margin-bottom: 18px;
   }
+  .closing-names { font-size: clamp(28px,7.5vw,32px); }
 }
 
 @media (prefers-reduced-motion:reduce) {
