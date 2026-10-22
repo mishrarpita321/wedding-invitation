@@ -116,8 +116,7 @@
 .is-open .envelope-flap { transform: rotateX(180deg); z-index: 1; }
 .is-open .invitation-card { opacity: 1; transform: translateY(-68%); }
 .envelope-actions { margin-top: 28px; }
-.tap-hint { color: var(--maroon); font: 11px/1.8 Arial, sans-serif; letter-spacing: .23em; margin: 0 0 16px; }
-.envelope-actions .fine { margin: 18px 0 0; }
+.tap-hint { color: var(--maroon); font: 11px/1.8 Arial, sans-serif; letter-spacing: .23em; margin: 0 0 10px; }
 .envelope:not(.is-open) .envelope-flap { animation: flap-breathe 6s ease-in-out infinite; }
 @keyframes flap-breathe { 50% { transform: rotateX(3deg); } }
 @media (max-width: 600px) {
