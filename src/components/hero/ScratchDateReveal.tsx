@@ -46,7 +46,7 @@ export default function ScratchDateReveal() {
     ctx.fillStyle = '#6e1f2a';
     ctx.textAlign = 'center';
     ctx.font = 'italic 30px Georgia';
-    ctx.fillText('Gently cratch to reveal our date', 300, 145);
+    ctx.fillText('Gently scratch to reveal our date', 300, 145);
     ctx.font = '14px Arial';
     ctx.fillText('A little surprise, just for you', 300, 184);
   }, []);

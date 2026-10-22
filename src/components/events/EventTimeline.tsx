@@ -12,7 +12,7 @@ export default function EventTimeline() {
     <section id="celebrations" className="section itinerary" aria-labelledby="itinerary-title">
       <Container maxWidth="lg">
         <Reveal><h2 id="itinerary-title">Wedding Celebrations</h2>
-          <p className="section-intro">Join us for the moments that mean everything.</p></Reveal>
+          <p className="section-intro">Join us as our most beautiful moments unfold.</p></Reveal>
         <Box component="ol" className="event-timeline">
           {events.map((event, index) => (
             <li key={event.id} className={`timeline-entry ${index % 2 === 0 ? 'entry-left' : 'entry-right'}`}>

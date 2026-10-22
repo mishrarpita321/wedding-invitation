@@ -21,7 +21,7 @@ export default function GaneshBlessing() {
           निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
         </motion.p>
         <motion.p className="blessing-meaning" variants={item}>
-          With the blessing of almighty,<br />and together with their families,<br />you are invited to the wedding <br />celebration of
+          With the blessing of almighty,<br />and the love of our families,<br />we invite you to join us <br />as we begin our forever together.
         </motion.p>
         <motion.div variants={item}><Flourish /></motion.div>
       </div>
