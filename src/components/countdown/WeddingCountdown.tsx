@@ -38,10 +38,10 @@ export default function WeddingCountdown() {
                 </div>)}
               </div>}
         </motion.div>
-        <motion.div className="countdown-date" variants={entrance}>
+        {/* <motion.div className="countdown-date" variants={entrance}>
           <p><time dateTime={wedding.date}>{wedding.dateLabel}</time></p>
           <p className="countdown-place"><time dateTime={wedding.date} title={`${wedding.timeLabel} ${wedding.timeZoneLabel}`}>{wedding.timeLabel}</time> · {wedding.location.split(',')[0]}</p>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </section>
   );

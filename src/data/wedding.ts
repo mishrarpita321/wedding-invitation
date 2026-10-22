@@ -9,7 +9,7 @@ export const wedding = {
   location: 'Bhubaneswar, Odisha',
   residence: 'D/23, Mason Paradise, Inajna, near Patia Station, Bhubaneswar',
   audio: '/assets/wedding-music.mp3',
-  photos: { footer: '/assets/footer.webp', together: '/assets/together.webp', together1: '/assets/together1.webp', arpita: '/assets/arpita.webp', swagat: '/assets/swagat.webp' },
+  photos: { footer1: '/assets/footer1.webp', together: '/assets/together.webp', together1: '/assets/together1.webp', arpita: '/assets/arpita.webp', swagat: '/assets/swagat.webp' },
 };
 
 export type EventId = 'engagement' | 'mehendi' | 'haldi' | 'wedding' | 'reception';
@@ -61,7 +61,7 @@ export const events: WeddingEvent[] = [
   },
   {
     id: 'reception', title: 'Reception', day: 'Friday', date: '12 February 2027',
-    time: '7:00 PM onwards', venue: 'Green Palm', address: 'Rourkela, Odisha',
+    time: '7:00 PM onwards', venue: 'Green Palm', address: 'Main Rd, Chhend Colony, Raurkela, Odisha',
     mapsQuery: 'Green Palm, Rourkela, Odisha', image: '/assets/events/reception.webp',
     dressCode: { preferred: 'Bling & party colours preferred.', colors: ['#b99555', '#384b49', '#554059'], avoid: [] },
   },
