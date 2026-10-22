@@ -123,7 +123,7 @@ export default function ScratchDateReveal() {
         <div className="scratch-or"><span>OR</span></div>
         <motion.button className="invitation-action scratch-fallback cta-polish" type="button" onClick={reveal}
           whileHover={reduced ? undefined : { y: -2 }} whileTap={pressFeedback(reduced)}
-          transition={{ type: 'tween', duration: reduced ? 0 : 0.16, ease: 'easeOut' }}>Reveal date without scratching</motion.button>
+          transition={{ type: 'tween', duration: reduced ? 0 : 0.16, ease: 'easeOut' }}>Click here to reveal the date</motion.button>
       </div>}
       <div role="status" aria-live="polite">
         {surfaceGone && <motion.div initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}

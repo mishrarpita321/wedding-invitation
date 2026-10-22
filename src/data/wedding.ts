@@ -36,19 +36,19 @@ export interface WeddingEvent {
 
 export const events: WeddingEvent[] = [
   {
-    id: 'engagement', title: 'Engagement', day: 'Thursday', date: '28 January 2027',
+    id: 'engagement', title: 'Ring Ceremony', day: 'Thursday', date: '28 January 2027',
     time: '1:00 PM onwards', venue: 'Angan Horizon', address: 'Nandankanan Road, Patia Square, Bhubaneswar, Odisha',
     mapsQuery: 'Angan Horizon, Bhubaneswar', image: '/assets/events/engagement.webp',
     dressCode: { preferred: 'Dress in colours you love.', colors: [], avoid: [{ name: 'Violet', color: '#6824a1' }, { name: 'Beige', color: '#ac906b' }] },
   },
   {
-    id: 'mehendi', title: 'Mehendi & Sangeet', day: 'Monday', date: '8 February 2027',
+    id: 'mehendi', title: 'Mehendi', day: 'Monday', date: '8 February 2027',
     time: '1:00 PM onwards', venue: 'At our residence', address: wedding.residence,
     mapsQuery: wedding.residence, image: '/assets/events/mehendi.webp',
     dressCode: { preferred: 'Green preferred.', colors: ['#526647', '#80936c', '#b4be9c'], avoid: [{ name: 'Orange', color: '#ff5f1f' }] },
   },
   {
-    id: 'haldi', title: 'Haldi', day: 'Tuesday', date: '9 February 2027',
+    id: 'haldi', title: 'Haldi & Sangeet', day: 'Tuesday', date: '9 February 2027',
     time: '11:00 AM onwards', venue: 'At our residence', address: wedding.residence,
     mapsQuery: wedding.residence, image: '/assets/events/haldi.webp',
     dressCode: { preferred: 'Yellow preferred.', colors: ['#c69227', '#e6b84a', '#f0d681'], avoid: [{ name: 'Pink', color: '#ff1493' }] },
