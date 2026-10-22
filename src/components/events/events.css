@@ -170,7 +170,9 @@
 .avoid-swatch { width: 17px; height: 17px; border-color: #82634055; }
 .no-restriction { font-size: 12px; margin-top: 0; }
 .event-actions { display: grid; grid-template-columns: 1fr 1.3fr; gap: 10px; margin-top: 18px; }
-.rsvp-note { font: italic 12px/1.4 var(--display); color: var(--muted); margin: 7px 0 0; }
 @media (max-width: 600px) { .event-card-body { padding: 20px 18px; } }
 @media (max-width: 350px) { .event-actions { grid-template-columns: 1fr; } }
 .event-actions .invitation-action { padding-inline: 8px; font-size: 15px; white-space: nowrap; }
+.event-actions .calendar-action { min-width: 0; margin-top: 0; gap: 5px; }
+.event-actions { grid-template-columns: 1fr 1fr; }
+@media (max-width: 350px) { .event-actions { grid-template-columns: 1fr; } }

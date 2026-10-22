@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import type { WeddingEvent } from '../../data/wedding';
 import { getGoogleMapsUrl } from '../../utils/maps';
 import { pressFeedback } from '../../utils/press';
+import { downloadEventCalendar } from '../../utils/calendar';
 import DetailIcon from '../shared/DetailIcon';
 import EventArtwork from './EventArtwork';
 
@@ -42,9 +43,9 @@ export default function EventTimelineCard({ event, index }: { event: WeddingEven
             </ul></div> : <p className="no-restriction">No specific colour restriction.</p>}
           </div>
           <div className="event-actions">
-            <motion.button className="invitation-action invitation-action-primary cta-polish" type="button" aria-disabled="true" aria-describedby={`rsvp-${event.id}`}
+            <motion.button className="invitation-action invitation-action-primary calendar-action cta-polish" type="button" onClick={() => downloadEventCalendar(event)} aria-label={`Add ${event.title} to calendar`}
               whileHover={reduced ? { y: 0, scale: 1 } : { y: -2, scale: 1.015 }} whileTap={pressFeedback(reduced, 0.97)}
-              transition={{ type: 'tween', duration: reduced ? 0 : 0.18, ease: 'easeOut' }}>RSVP</motion.button>
+              transition={{ type: 'tween', duration: reduced ? 0 : 0.18, ease: 'easeOut' }}><DetailIcon kind="calendar" />Add to Calendar</motion.button>
             <motion.a className="invitation-action cta-polish directions-action" href={getGoogleMapsUrl(event.mapsQuery)} target="_blank" rel="noopener noreferrer"
               whileHover={reduced ? { y: 0, scale: 1 } : { y: -2 }} whileTap={pressFeedback(reduced)}
               transition={{ type: 'tween', duration: reduced ? 0 : 0.18, ease: 'easeOut' }}
