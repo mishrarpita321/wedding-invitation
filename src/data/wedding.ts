@@ -60,10 +60,10 @@ export const events: WeddingEvent[] = [
     mapsQuery: 'Ruby by Occasions, Bhubaneswar', image: '/assets/events/wedding.webp', subtitle: 'The beginning of their forever',
     dressCode: { preferred: 'Anything preferred.', colors: [], avoid: [{ name: 'Red', color: '#FF2C2C' }] },
   },
-  {
-    id: 'reception', title: 'Reception', rsvpLabel: 'Reception', day: 'Friday', date: '12 February 2027',
-    time: 'Dinner - 7:00 PM onwards', venue: 'Green Palm', address: 'Main Rd, Chhend Colony, Raurkela, Odisha',
-    mapsQuery: 'Green Palm, Rourkela, Odisha', image: '/assets/events/reception.webp',
-    dressCode: { preferred: 'Bling & party colours preferred.', colors: [], avoid: [] },
-  },
+  // {
+  //   id: 'reception', title: 'Reception', rsvpLabel: 'Reception', day: 'Friday', date: '12 February 2027',
+  //   time: 'Dinner - 7:00 PM onwards', venue: 'Green Palm', address: 'Main Rd, Chhend Colony, Raurkela, Odisha',
+  //   mapsQuery: 'Green Palm, Rourkela, Odisha', image: '/assets/events/reception.webp',
+  //   dressCode: { preferred: 'Bling & party colours preferred.', colors: [], avoid: [] },
+  // },
 ];

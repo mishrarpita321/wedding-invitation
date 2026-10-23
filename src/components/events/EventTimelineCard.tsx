@@ -17,7 +17,7 @@ export default function EventTimelineCard({ event, index }: { event: WeddingEven
   const reduced = useReducedMotion();
   const [imageFailed, setImageFailed] = useState(false);
   const image = suppliedImagePaths.has(`/public${event.image}`) ? event.image : undefined;
-  const pairedDressCode = event.dressCode.colors.length > 0 && event.dressCode.avoid.length > 0;
+  // const pairedDressCode = event.dressCode.colors.length > 0 && event.dressCode.avoid.length > 0;
 
   return (
     <motion.div className="event-card-reveal" initial={reduced ? false : { opacity: 0, y: 36 }}
