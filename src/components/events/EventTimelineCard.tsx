@@ -34,6 +34,15 @@ export default function EventTimelineCard({ event, index }: { event: WeddingEven
           <p className="event-detail event-date"><DetailIcon kind="calendar" /><span>{event.day} · <strong>{event.date}</strong></span></p>
           <p className="event-detail"><DetailIcon kind="clock" /><span>{event.time}</span></p>
           <p className="event-detail"><DetailIcon kind="pin" /><span><strong>{event.venue}</strong><br />{event.address}</span></p>
+          <div className="event-actions">
+            <motion.button className="invitation-action invitation-action-primary calendar-action cta-polish" type="button" onClick={() => downloadEventCalendar(event)} aria-label={`Add ${event.title} to calendar`}
+              whileHover={reduced ? { y: 0, scale: 1 } : { y: -2, scale: 1.015 }} whileTap={pressFeedback(reduced, 0.97)}
+              transition={{ type: 'tween', duration: reduced ? 0 : 0.18, ease: 'easeOut' }}><DetailIcon kind="calendar" />Add to Calendar</motion.button>
+            <motion.a className="invitation-action cta-polish directions-action" href={getGoogleMapsUrl(event.mapsQuery)} target="_blank" rel="noopener noreferrer"
+              whileHover={reduced ? { y: 0, scale: 1 } : { y: -2 }} whileTap={pressFeedback(reduced)}
+              transition={{ type: 'tween', duration: reduced ? 0 : 0.18, ease: 'easeOut' }}
+              aria-label={`Get directions for ${event.title} to ${event.venue}`}>Get Directions <span className="cta-icon" aria-hidden="true">↗</span></motion.a>
+          </div>
           <div className={`event-dress-code${pairedDressCode ? ' event-dress-code-paired' : ''}`}>
             <div className="event-dress-preferred">
             <p className="event-detail"><DetailIcon kind="dress" /><span>{event.dressCode.preferred}</span></p>
@@ -44,15 +53,6 @@ export default function EventTimelineCard({ event, index }: { event: WeddingEven
             {event.dressCode.avoid.length ? <div className="event-avoid"><span>Kindly avoid</span><ul>
               {event.dressCode.avoid.map(color => <li key={color.name}><span className="avoid-swatch" style={{ backgroundColor: color.color }} aria-hidden="true" />{color.name}</li>)}
             </ul></div> : <p className="no-restriction">No specific colour restriction.</p>}
-          </div>
-          <div className="event-actions">
-            <motion.button className="invitation-action invitation-action-primary calendar-action cta-polish" type="button" onClick={() => downloadEventCalendar(event)} aria-label={`Add ${event.title} to calendar`}
-              whileHover={reduced ? { y: 0, scale: 1 } : { y: -2, scale: 1.015 }} whileTap={pressFeedback(reduced, 0.97)}
-              transition={{ type: 'tween', duration: reduced ? 0 : 0.18, ease: 'easeOut' }}><DetailIcon kind="calendar" />Add to Calendar</motion.button>
-            <motion.a className="invitation-action cta-polish directions-action" href={getGoogleMapsUrl(event.mapsQuery)} target="_blank" rel="noopener noreferrer"
-              whileHover={reduced ? { y: 0, scale: 1 } : { y: -2 }} whileTap={pressFeedback(reduced)}
-              transition={{ type: 'tween', duration: reduced ? 0 : 0.18, ease: 'easeOut' }}
-              aria-label={`Get directions for ${event.title} to ${event.venue}`}>Get Directions <span className="cta-icon" aria-hidden="true">↗</span></motion.a>
           </div>
         </div>
       </Paper>

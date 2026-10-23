@@ -38,7 +38,7 @@ export interface WeddingEvent {
 export const events: WeddingEvent[] = [
   {
     id: 'engagement', title: 'Ring Ceremony', rsvpLabel: 'Engagement', day: 'Thursday', date: '28 January 2027',
-    time: '1:00 PM onwards', venue: 'Angan Horizon', address: 'Nandankanan Road, Patia Square, Bhubaneswar, Odisha',
+    time: 'Lunch - 1:00 PM onwards', venue: 'Angan Horizon', address: 'Nandankanan Road, Patia Square, Bhubaneswar, Odisha',
     mapsQuery: 'Angan Horizon, Bhubaneswar', image: '/assets/events/engagement.webp',
     dressCode: { preferred: 'Dress in colours you love.', colors: [], avoid: [{ name: 'Violet', color: '#6824a1' }, { name: 'Beige', color: '#ac906b' }] },
   },
@@ -56,14 +56,14 @@ export const events: WeddingEvent[] = [
   },
   {
     id: 'wedding', title: 'Wedding', rsvpLabel: 'Wedding', day: 'Wednesday', date: wedding.dateLabel,
-    time: `${wedding.timeLabel} onwards`, venue: 'Ruby by Occasions', address: 'Cuttack - Puri Bypass Rd, near Shirdi Sai Mandira, Bhubaneswar, Odisha',
+    time: `Lunch - ${wedding.timeLabel} onwards`, venue: 'Ruby by Occasions', address: 'Cuttack - Puri Bypass Rd, near Shirdi Sai Mandira, Bhubaneswar, Odisha',
     mapsQuery: 'Ruby by Occasions, Bhubaneswar', image: '/assets/events/wedding.webp', subtitle: 'The day we say “I do”',
     dressCode: { preferred: 'Anything preferred.', colors: [], avoid: [{ name: 'Red', color: '#FF2C2C' }] },
   },
   {
     id: 'reception', title: 'Reception', rsvpLabel: 'Reception', day: 'Friday', date: '12 February 2027',
-    time: '7:00 PM onwards', venue: 'Green Palm', address: 'Main Rd, Chhend Colony, Raurkela, Odisha',
+    time: 'Dinner - 7:00 PM onwards', venue: 'Green Palm', address: 'Main Rd, Chhend Colony, Raurkela, Odisha',
     mapsQuery: 'Green Palm, Rourkela, Odisha', image: '/assets/events/reception.webp',
-    dressCode: { preferred: 'Bling & party colours preferred.', colors: ['#b99555', '#384b49', '#554059'], avoid: [] },
+    dressCode: { preferred: 'Bling & party colours preferred.', colors: [], avoid: [] },
   },
 ];
