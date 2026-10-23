@@ -29,23 +29,28 @@ assert.ok(Object.values(selectEvents(true)).every(Boolean));
 assert.ok(Object.values(selectEvents()).every(value => !value));
 
 const source = await readFile('src/utils/rsvp.ts', 'utf8');
-async function mock(failures, development) {
-  return import(moduleUrl(source.replace('const MOCK_FAILURES = 0;', `const MOCK_FAILURES = ${failures};`)
-    .replace('import.meta.env.DEV', String(development))));
-}
-const originalWindow = globalThis.window;
 const originalFetch = globalThis.fetch;
-globalThis.window = { setTimeout };
-globalThis.fetch = () => { throw new Error('Mock must not access the network'); };
+async function transport(branch = 'main', url = 'https://script.google.com/macros/s/test/exec') {
+  return import(moduleUrl(source.replaceAll('import.meta.env.VITE_RSVP_BRANCH', JSON.stringify(branch))
+    .replaceAll('import.meta.env.VITE_RSVP_SCRIPT_URL', JSON.stringify(url))));
+}
 try {
-  const success = await mock(0, true);
-  const start = Date.now();
-  await success.submitRsvp(attending);
-  assert.ok(Date.now() - start >= 800);
-  const failOnce = await mock(1, true);
-  await assert.rejects(() => failOnce.submitRsvp(attending));
-  await failOnce.submitRsvp(attending);
-  const production = await mock(1, false);
-  await production.submitRsvp(declined);
-} finally { globalThis.window = originalWindow; globalThis.fetch = originalFetch; }
-console.log('PASS RSVP validation, counts, selection, typed payload normalization, 850ms delay, fail-once/retry and production success without network calls');
+  const requests = [];
+  globalThis.fetch = async (url, options) => {
+    requests.push({ url, ...options, payload: JSON.parse(options.body) });
+    return { ok: true, json: async () => ({ ok: requests.length > 1 }) };
+  };
+  const main = await transport();
+  await assert.rejects(() => main.submitRsvp(attending));
+  await main.submitRsvp(attending);
+  assert.equal(requests[0].payload.submissionId, requests[1].payload.submissionId);
+  assert.equal(requests[0].headers['Content-Type'], 'text/plain;charset=utf-8');
+  for (const branch of ['bride', 'groom']) {
+    await (await transport(branch)).submitRsvp(declined);
+    assert.equal(requests.at(-1).payload.branch, branch);
+    assert.equal(requests.at(-1).payload.guestCount, 0);
+  }
+  await assert.rejects(() => transport('feature').then(module => module.submitRsvp(attending)));
+  await assert.rejects(() => transport('main', '').then(module => module.submitRsvp(attending)));
+} finally { globalThis.fetch = originalFetch; }
+console.log('PASS RSVP validation, normalization, branch payloads, save errors and retry IDs');

@@ -1,16 +1,23 @@
 import type { RsvpPayload } from '../data/rsvp';
 
-// Set to 1 locally to fail the first submission; Try Again then succeeds.
-// Failures are disabled in production builds. Reload to restart the counter.
-const MOCK_FAILURES = 0;
-let failuresRemaining = import.meta.env.DEV ? MOCK_FAILURES : 0;
+let pending: { key: string; id: string } | undefined;
 
-// TODO: Replace mock RSVP submission with production persistence API.
-// The typed payload is intentionally neither stored, sent nor logged.
-export async function submitRsvp(_payload: RsvpPayload): Promise<void> {
-  await new Promise<void>(resolve => window.setTimeout(resolve, 850));
-  if (failuresRemaining > 0) {
-    failuresRemaining--;
-    throw new Error('Simulated RSVP submission failure');
-  }
+export async function submitRsvp(payload: RsvpPayload): Promise<void> {
+  const url = import.meta.env.VITE_RSVP_SCRIPT_URL;
+  if (!url) throw new Error('Missing VITE_RSVP_SCRIPT_URL');
+  const branch = import.meta.env.VITE_RSVP_BRANCH;
+  if (!['main', 'bride', 'groom'].includes(branch)) throw new Error('Invalid RSVP branch');
+  const key = JSON.stringify({ branch, ...payload });
+  if (pending?.key !== key) pending = { key, id: crypto.randomUUID() };
+  const response = await fetch(url, {
+    method: 'POST',
+    // Avoid a CORS preflight, which Apps Script does not support.
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify({ ...payload, branch, submissionId: pending.id }),
+    signal: AbortSignal.timeout(30000),
+    credentials: 'omit',
+    redirect: 'follow',
+  });
+  if (!response.ok || (await response.json()).ok !== true) throw new Error('RSVP was not saved');
+  pending = undefined;
 }

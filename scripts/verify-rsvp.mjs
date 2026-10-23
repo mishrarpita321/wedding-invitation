@@ -15,14 +15,14 @@ try {
     const apiRequests = [];
     page.on('request', request => { if (new URL(request.url()).pathname.startsWith('/api/')) apiRequests.push(request.url()); });
     await page.exposeFunction('__recordRsvp', payload => submissions.push(payload));
-    // Test-only instrumentation around the actual 850ms mock; no hooks ship in the application.
+    // Stub the transport only in this browser; never write test guests to Sheets.
     await page.route('**/src/utils/rsvp.ts*', async route => {
       const response = await route.fetch();
       const source = (await response.text()).replace('export async function submitRsvp(', 'async function originalSubmitRsvp(');
       assert.ok(source.includes('async function originalSubmitRsvp('));
       await route.fulfill({ response, body: source + `\nexport async function submitRsvp(payload) {
         await window.__recordRsvp(payload);
-        await originalSubmitRsvp(payload);
+        await new Promise(resolve => setTimeout(resolve, 850));
         if (window.__failRsvpOnce) { window.__failRsvpOnce = false; throw new Error('Test failure'); }
       }` });
     });
@@ -136,3 +136,4 @@ try {
     await page.close();
   }
 } finally { await browser.close(); }
+

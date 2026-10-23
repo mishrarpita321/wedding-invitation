@@ -1,4 +1,4 @@
-﻿# Arpita & Swagat — wedding invitation
+# Arpita & Swagat — wedding invitation
 
 The existing React, TypeScript, Vite, MUI and Framer Motion invitation, organized into focused feature components.
 
@@ -56,8 +56,20 @@ The checks use Chrome at its default Windows location. Set `CHROME_PATH` for ano
 
 Build and deploy `dist/` to a static host such as Vercel. Google Fonts have system-serif fallbacks when unavailable.
 
-The footer RSVP opens a mobile-first dialog with a temporary frontend-only submission mock. It waits 850ms before showing the attending or decline confirmation. No responses are stored, sent to an API, or logged. Run `npm run dev` to experience the entire flow; no backend or environment configuration is needed.
+The footer RSVP submits to Google Apps Script. Both tabs already have the expected headers; the script appends rows without changing them. `main` and `bride` send to **Bride**, and `groom` sends to **Groom**.
 
-The future integration boundary is `submitRsvp(payload)` in `src/utils/rsvp.ts`. To test a failure locally, change `MOCK_FAILURES` from `0` to `1` in that file and reload: the first submission fails after the delay, preserves the form, and **Try Again** succeeds. Restore `0` afterward. Failure simulation is disabled in production builds. Cancel, close, Escape and Done reset the form after closing; backdrop clicks are ignored so accidental taps do not lose an in-progress form.
+## Connect RSVP
 
-With the Vite dev server running, run `npm run test:rsvp` for browser flows at 360, 390, 430 (reduced motion), and 1440px, including validation, guest count, selection, decline, loading, animation, duplicate prevention, error/retry, focus, short-screen scrolling and reopening. Run `npm run test:rsvp-logic` for payload/validation and mock submission checks. Browser tests instrument the mock only in the test browser and verify that RSVP makes no API requests. A shortened viewport approximates keyboard space; check a real phone keyboard as well. There is no lint script in this project.
+1. In the existing spreadsheet, choose **Extensions → Apps Script**.
+2. Replace `Code.gs` with the contents of `apps-script/Code.gs` in this repository and save.
+3. Choose **Deploy → New deployment → Web app**. Set **Execute as: Me** and **Who has access: Anyone**. Authorize access to the sheet and deploy.
+4. Copy the web app URL ending in `/exec`. Copy `.env.example` to `.env.local` and replace `VITE_RSVP_SCRIPT_URL` with that URL. On your hosting provider, add the same environment variable.
+5. Restart the dev server or rebuild/redeploy the site. Environment values are embedded at build time.
+
+The branch is detected from Vercel, Cloudflare Pages, or local Git. Set `VITE_RSVP_BRANCH=main`, `bride`, or `groom` explicitly for other hosts, builds without Git, or preview branches. Unknown branches fail instead of writing to the wrong tab. All three deployments use the same Apps Script URL and spreadsheet. No content changes or new branches are created by this integration.
+
+The existing loading, confirmation and retry UI is preserved. Confirmation requires a readable `{ "ok": true }` response; missing configuration or a failed save uses the existing error state. Submission IDs prevent duplicate rows when retrying the same unchanged form in the current page session. Declines save zero guests and false event selections. Do not use `no-cors`: its opaque response cannot confirm a save.
+
+After deployment, submit an attending and declined response and verify the appropriate tab. Live saving cannot be tested until the Apps Script URL is configured. When changing the script later, use **Deploy → Manage deployments → Edit → New version** to update the existing URL.
+
+Run `npm run test:rsvp-logic` for payload validation and transport checks. Browser tests use a stubbed Apps Script response and never write test guests to the live sheet. There is no lint script.
