@@ -46,7 +46,7 @@ export default function ScratchDateReveal() {
     ctx.fillStyle = '#6e1f2a';
     ctx.textAlign = 'center';
     ctx.font = 'italic 30px Georgia';
-    ctx.fillText('Gently scratch to reveal our date', 300, 145);
+    ctx.fillText('Gently scratch to reveal the date', 300, 145);
     ctx.font = '14px Arial';
     ctx.fillText('A little surprise, just for you', 300, 184);
   }, []);
@@ -140,7 +140,7 @@ export default function ScratchDateReveal() {
             >
             <DetailIcon kind="calendar" />Add to Calendar
           </motion.button>
-          <p className="scratch-postscript">We can’t wait to celebrate with you!</p>
+          <p className="scratch-postscript">We look forward to celebrating this special day with you.</p>
         </motion.div>}
       </div>
     </motion.div>

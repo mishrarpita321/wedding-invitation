@@ -57,7 +57,7 @@ export const events: WeddingEvent[] = [
   {
     id: 'wedding', title: 'Wedding', rsvpLabel: 'Wedding', day: 'Wednesday', date: wedding.dateLabel,
     time: `Lunch - ${wedding.timeLabel} onwards`, venue: 'Ruby by Occasions', address: 'Cuttack - Puri Bypass Rd, near Shirdi Sai Mandira, Bhubaneswar, Odisha',
-    mapsQuery: 'Ruby by Occasions, Bhubaneswar', image: '/assets/events/wedding.webp', subtitle: 'The day we say “I do”',
+    mapsQuery: 'Ruby by Occasions, Bhubaneswar', image: '/assets/events/wedding.webp', subtitle: 'The beginning of their forever',
     dressCode: { preferred: 'Anything preferred.', colors: [], avoid: [{ name: 'Red', color: '#FF2C2C' }] },
   },
   {

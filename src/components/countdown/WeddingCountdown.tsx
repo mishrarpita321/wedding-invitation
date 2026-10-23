@@ -23,7 +23,7 @@ export default function WeddingCountdown() {
         whileInView="visible" viewport={{ once: true, amount: 0.25 }}
         transition={{ staggerChildren: reduced ? 0 : 0.08 }}>
         <motion.p className="eyebrow" variants={entrance}>With every passing moment</motion.p>
-        <motion.h2 id="countdown-title" variants={entrance}>Counting down to “I do”</motion.h2>
+        <motion.h2 id="countdown-title" variants={entrance}>Until their forever begins</motion.h2>
         <motion.div className="countdown-ornament" aria-hidden="true"
           variants={{ hidden: { opacity: 0, scale: 0.96 }, visible: { opacity: 1, scale: 1, transition: { duration: reduced ? 0 : 0.45 } } }}>
           <Lotus />

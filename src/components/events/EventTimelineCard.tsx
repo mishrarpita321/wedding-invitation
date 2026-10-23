@@ -43,7 +43,7 @@ export default function EventTimelineCard({ event, index }: { event: WeddingEven
               transition={{ type: 'tween', duration: reduced ? 0 : 0.18, ease: 'easeOut' }}
               aria-label={`Get directions for ${event.title} to ${event.venue}`}>Get Directions <span className="cta-icon" aria-hidden="true">↗</span></motion.a>
           </div>
-          <div className={`event-dress-code${pairedDressCode ? ' event-dress-code-paired' : ''}`}>
+          {/* <div className={`event-dress-code${pairedDressCode ? ' event-dress-code-paired' : ''}`}>
             <div className="event-dress-preferred">
             <p className="event-detail"><DetailIcon kind="dress" /><span>{event.dressCode.preferred}</span></p>
             {!!event.dressCode.colors.length && <div className="preferred-swatches" aria-label="Suggested colour palette">
@@ -53,7 +53,7 @@ export default function EventTimelineCard({ event, index }: { event: WeddingEven
             {event.dressCode.avoid.length ? <div className="event-avoid"><span>Kindly avoid</span><ul>
               {event.dressCode.avoid.map(color => <li key={color.name}><span className="avoid-swatch" style={{ backgroundColor: color.color }} aria-hidden="true" />{color.name}</li>)}
             </ul></div> : <p className="no-restriction">No specific colour restriction.</p>}
-          </div>
+          </div> */}
         </div>
       </Paper>
     </motion.div>

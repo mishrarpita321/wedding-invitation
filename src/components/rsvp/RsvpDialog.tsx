@@ -92,7 +92,7 @@ export default function RsvpDialog({ open, onClose }: { open: boolean; onClose: 
                 </div>}
               </div>
               <h2 id="rsvp-dialog-title" ref={confirmation} tabIndex={-1}>{status === 'attending' ? 'RSVP received' : 'Response received'}</h2>
-              <p id="rsvp-dialog-intro" style={{marginBottom: "20px"}}>{status === 'attending' ? 'Looking forward to celebrating with you.' : <>Thank you for letting us know.<br />You’ll be missed.</>}</p>
+              <p id="rsvp-dialog-intro" style={{marginBottom: "20px"}}>{status === 'attending' ? <>Thank you for joining our celebration.<br />We look forward to welcoming you.</> : <>Thank you for letting us know.<br />You’ll be missed.</>}</p>
               {/* <p className="rsvp-signature">{wedding.bride.firstName} & {wedding.groom.firstName}</p> */}
               <motion.button type="button" className="invitation-action invitation-action-primary cta-polish" onClick={close} {...feedback}>Done</motion.button>
             </motion.div>

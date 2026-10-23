@@ -1,4 +1,5 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
+import { wedding } from '../../data/wedding';
 import { Flourish } from '../shared/Ornaments';
 import ganeshLogo from '../../../assets/GaneshLogo.png';
 import './blessing.css';
@@ -21,7 +22,8 @@ export default function GaneshBlessing() {
           निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
         </motion.p>
         <motion.p className="blessing-meaning" variants={item}>
-          With the blessing of almighty,<br />and the love of our families,<br />we invite you to join us <br />as we begin our forever together.
+          With the blessings of Almighty,<br />
+          we cordially invite you to<br /> grace the wedding <br />of our beloved daughter.<br />
         </motion.p>
         <motion.div variants={item}><Flourish /></motion.div>
       </div>

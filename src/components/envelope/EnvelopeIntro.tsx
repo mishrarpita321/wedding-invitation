@@ -42,7 +42,7 @@ export default function EnvelopeIntro({ onOpen, onPlayMusic }: EnvelopeIntroProp
         <div className="paper-frame" />
         <Lotus className="opening-lotus" />
         <motion.p className="eyebrow" initial={{ opacity: reduced ? 1 : 0 }} animate={{ opacity: 1 }} transition={{ delay: reduced ? 0 : 0.7 }}>
-          You are cordially invited to celebrate with us
+          With joy in our hearts,<br />we invite you to the wedding of our beloved daughter
         </motion.p>
         <motion.h1 id="envelope-title" className="envelope-heading stationery-names" initial={{ opacity: reduced ? 1 : 0 }} animate={{ opacity: opening ? 0 : 1 }} transition={{ delay: reduced || opening ? 0 : 0.9, duration: reduced ? 0 : 0.6 }}>
           {wedding.bride.firstName}<span className="names-ampersand">&</span>{wedding.groom.firstName}
@@ -55,7 +55,7 @@ export default function EnvelopeIntro({ onOpen, onPlayMusic }: EnvelopeIntroProp
           </motion.div>
         </motion.div>
         <motion.div className="envelope-actions" initial={{ opacity: reduced ? 1 : 0 }} animate={{ opacity: 1 }} transition={{ delay: reduced ? 0 : 1.25 }}>
-          <p className="tap-hint" aria-live="polite">{opening ? 'The beginning of our forever…' : 'TAP THE SEAL TO OPEN'}</p>
+          <p className="tap-hint" aria-live="polite">{opening ? 'The beginning of their forever…' : 'TAP THE SEAL TO OPEN'}</p>
           <p className="fine">A little something from us, for you</p>
         </motion.div>
       </div>

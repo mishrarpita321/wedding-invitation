@@ -521,6 +521,35 @@ em {
   display: block;
 }
 
+.closing-family .closing-composition {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 1320px;
+}
+.closing-family .closing-intro,
+.closing-family .closing-message { align-self: center; width: 100%; }
+.closing-family .closing-intro { margin-bottom: 30px; }
+.closing-family .closing-photo {
+  width: 100%;
+  margin: 0 auto 10px;
+  padding: clamp(5px, 1vw, 10px);
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 16px 42px #573c2912;
+}
+.closing-family .closing-photo img {
+  aspect-ratio: 2 / 1;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+.closing-family .closing-message { max-width: 580px; }
+@media (max-width: 899px) {
+  .closing-family.section { padding-inline: 10px; }
+}
+
 .closing .section-lotus {
   width: 45px;
   height: 32px;
@@ -553,6 +582,33 @@ em {
   margin: 20px auto 0;
 }
 
+.closing-hosts {
+  margin: 24px auto 0;
+  max-width: 100%;
+  font-family: var(--display);
+  text-align: center;
+}
+.closing-hosts > span { display: block; }
+.closing-hosts-greeting {
+  color: var(--muted);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.5;
+}
+.closing-hosts-names {
+  margin: 7px 0 4px;
+  color: var(--maroon);
+  font-size: clamp(23px, 4.8vw, 28px);
+  font-weight: 600;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.closing-hosts-family {
+  color: var(--muted);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.5;
+}
 .footer-rsvp {
   margin-top: 28px;
   text-align: center;
@@ -620,7 +676,7 @@ em {
 
 @media (max-width:600px) {
   .section {
-    padding: 70px 20px;
+    padding: 30px 20px;
   }
 
   .masthead {
@@ -640,7 +696,7 @@ em {
   .hero {
     display: flex;
     flex-direction: column;
-    padding: 38px 25px 45px;
+    padding: 38px 25px 30px;
     gap: 30px;
   }
 
