@@ -13,7 +13,8 @@ export function eventCalendar(event: WeddingEvent, now = new Date()) {
   // Event display dates and times are local to the celebrations in India.
   const [day, month, year] = event.date.split(' ');
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  const time = /^(\d{1,2}):(\d{2})\s*(AM|PM)\b/.exec(event.time);
+  // Meal labels may precede the time (for example, "Lunch - 1:00 PM onwards").
+  const time = /\b(\d{1,2}):(\d{2})\s*(AM|PM)\b/.exec(event.time);
   const monthIndex = months.indexOf(month);
   if (!time || monthIndex < 0) throw new Error(`Invalid calendar date/time for ${event.id}`);
   const hour = Number(time[1]) % 12 + (time[3] === 'PM' ? 12 : 0);
