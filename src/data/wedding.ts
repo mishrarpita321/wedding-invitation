@@ -38,7 +38,7 @@ export interface WeddingEvent {
 export const events: WeddingEvent[] = [
   {
     id: 'engagement', title: 'Ring Ceremony', rsvpLabel: 'Engagement', day: 'Thursday', date: '28 January 2027',
-    time: 'Lunch - 1:00 PM onwards', venue: 'Angan Horizon', address: 'Nandankanan Road, Patia Square, Bhubaneswar, Odisha',
+    time: 'Lunch - 1:00 PM onwards', venue: 'Angan Horizon', address: 'Infocity Road, Patia Square, Bhubaneswar, Odisha',
     mapsQuery: 'Angan Horizon, Bhubaneswar', image: '/assets/events/engagement.webp',
     dressCode: { preferred: 'Dress in colours you love.', colors: [], avoid: [{ name: 'Violet', color: '#6824a1' }, { name: 'Beige', color: '#ac906b' }] },
   },

@@ -1,4 +1,15 @@
-﻿.ganesh-blessing {
+/* .blessing-screen { min-height: 100svh; display: flex; flex-direction: column; }
+.blessing-screen .ganesh-blessing { flex: 1; min-height: 0; } */
+.blessing-scroll-slot { display: flex; justify-content: center; padding: 12px 25px max(20px, env(safe-area-inset-bottom)); }
+.blessing-scroll-cue {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 6px 18px; color: var(--maroon); font: 10px/1.5 Arial, sans-serif;
+  letter-spacing: .14em; text-decoration: none;
+}
+.blessing-scroll-cue svg { animation: blessing-scroll-nudge 2s ease-in-out infinite; }
+@keyframes blessing-scroll-nudge { 50% { transform: translateY(4px); } }
+@media (prefers-reduced-motion: reduce) { .blessing-scroll-cue svg { animation: none; } }
+.ganesh-blessing {
   position: relative;
   min-height: min(740px, 90svh);
   display: flex;
@@ -26,10 +37,12 @@
 .blessing-meaning { font: italic 21px/1.6 var(--display); color: var(--muted); margin-bottom: 0; }
 .ganesh-blessing .flourish { margin: 25px auto 0; }
 @media (max-width: 600px) {
-  .ganesh-blessing.section { padding: 75px 25px 60px; min-height: 620px; }
-  .ganesh { margin-bottom: 22px; }
-  .invocation { margin-bottom: 22px; }
-  .blessing-meaning { font-size: 22px; }
+  .ganesh-blessing.section { padding: 28px 25px 12px; }
+  .ganesh { width: clamp(120px, 25svh, 200px); margin-bottom: 16px; }
+  .invocation { margin-bottom: 16px; }
+  .blessing-meaning { font-size: clamp(18px, 2.8svh, 22px); }
+  .shloka { margin-bottom: 16px; line-height: 1.9; }
+  .ganesh-blessing .flourish { margin-top: 16px; }
 }
 @media (max-width: 350px) {
   .shloka { font-size: 13px; }
