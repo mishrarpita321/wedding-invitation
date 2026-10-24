@@ -30,6 +30,7 @@ export default function Envelope({ opening, onOpen }: EnvelopeProps) {
           whileHover={reduced || opening ? undefined : { scale: 1.04, transition: { type: 'tween', duration: 0.16, repeat: 0 } }}
           whileTap={opening ? undefined : pressFeedback(reduced, 0.95)}>
           <img src={sealLogo} alt="" draggable={false} />
+          <span className="seal-open-cue" aria-hidden="true">Tap here</span>
         </motion.button>
       </div>
       <span aria-hidden="true" className="envelope-vine vine-left">❦</span>
