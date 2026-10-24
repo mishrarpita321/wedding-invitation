@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { Flourish } from '../shared/Ornaments';
 import ganeshLogo from '../../../assets/GaneshLogo.png';
@@ -6,18 +5,6 @@ import './blessing.css';
 
 export default function GaneshBlessing() {
   const reduced = useReducedMotion();
-  const [showScrollCue, setShowScrollCue] = useState(true);
-  useEffect(() => {
-    const dismissOnScroll = () => {
-      if (window.scrollY > 48) {
-        setShowScrollCue(false);
-        window.removeEventListener('scroll', dismissOnScroll);
-      }
-    };
-    dismissOnScroll();
-    window.addEventListener('scroll', dismissOnScroll, { passive: true });
-    return () => window.removeEventListener('scroll', dismissOnScroll);
-  }, []);
   const item: Variants = {
     hidden: { opacity: 0, y: 16 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -38,14 +25,12 @@ export default function GaneshBlessing() {
         </motion.p>
         <motion.div variants={item}><Flourish /></motion.div>
       </div>
-      {showScrollCue && (
         <a className="blessing-scroll-cue" href="#couple-names">
           Scroll to explore
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
             <path d="m6 9 6 6 6-6" />
           </svg>
         </a>
-      )}
     </motion.section>
   );
 }

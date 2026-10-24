@@ -2,6 +2,7 @@
   position: relative;
   min-height: min(740px, 90svh);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 85px 25px 65px;
@@ -20,11 +21,8 @@
 }
 .blessing-content { width: 100%; max-width: 580px; }
 .blessing-scroll-cue {
-  position: fixed;
-  bottom: max(22px, env(safe-area-inset-bottom));
-  left: 50%;
-  z-index: 15;
-  transform: translateX(-50%);
+  flex-shrink: 0;
+  margin-top: 28px;
   display: flex;
   flex-direction: column;
   align-items: center;

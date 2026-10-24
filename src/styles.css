@@ -107,7 +107,7 @@ em {
 }
 
 .section {
-  padding: 100px 20px;
+  padding: 45px 20px;
   text-align: center;
 }
 
@@ -620,7 +620,7 @@ em {
 
 @media (max-width:600px) {
   .section {
-    padding: 70px 20px;
+    padding: 45px 20px;
   }
 
   .masthead {
