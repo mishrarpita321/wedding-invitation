@@ -13,7 +13,9 @@ export interface RsvpPayload {
 export interface RsvpErrors { name?: string; events?: string; guestCount?: string }
 
 export function selectEvents(selected = false): EventSelection {
-  return Object.fromEntries(rsvpEvents.map(event => [event.id, selected])) as EventSelection;
+  // The shared Apps Script requires every event key, even on invitations that hide one.
+  return { engagement: false, mehendi: false, haldi: false, wedding: false, reception: false,
+    ...Object.fromEntries(rsvpEvents.map(event => [event.id, selected])) };
 }
 
 export function validateRsvp(value: Pick<RsvpPayload, 'name' | 'guestCount' | 'status' | 'events'>): RsvpErrors {

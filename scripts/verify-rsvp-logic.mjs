@@ -24,8 +24,13 @@ assert.notEqual(attending.events, form.events);
 const declined = createRsvpPayload({ ...form, status: 'declined' });
 assert.equal(declined.guestCount, 0);
 assert.ok(Object.values(declined.events).every(value => !value));
-assert.equal(Object.keys(selectEvents(true)).length, rsvpEvents.length);
-assert.ok(Object.values(selectEvents(true)).every(Boolean));
+const backendEventIds = ['engagement', 'mehendi', 'haldi', 'wedding', 'reception'];
+assert.deepEqual(Object.keys(selectEvents(true)).sort(), [...backendEventIds].sort());
+for (const id of backendEventIds) {
+  assert.equal(selectEvents(true)[id], rsvpEvents.some(event => event.id === id));
+  assert.equal(typeof attending.events[id], 'boolean');
+  assert.equal(typeof declined.events[id], 'boolean');
+}
 assert.ok(Object.values(selectEvents()).every(value => !value));
 
 const source = await readFile('src/utils/rsvp.ts', 'utf8');
