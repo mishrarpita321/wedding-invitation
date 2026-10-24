@@ -25,12 +25,6 @@ export default function GaneshBlessing() {
         </motion.p>
         <motion.div variants={item}><Flourish /></motion.div>
       </div>
-        <a className="blessing-scroll-cue" href="#couple-names">
-          Scroll to explore
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-            <path d="m6 9 6 6 6-6" />
-          </svg>
-        </a>
     </motion.section>
   );
 }

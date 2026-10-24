@@ -5,7 +5,6 @@ import HeroSection from '../components/hero/HeroSection';
 import CoupleIntroduction from '../components/couple/CoupleIntroduction';
 import EventTimeline from '../components/events/EventTimeline';
 import WeddingCountdown from '../components/countdown/WeddingCountdown';
-import VenueLocation from '../components/location/VenueLocation';
 import Footer from '../components/footer/Footer';
 import FlowerPetals from '../components/effects/FlowerPetals';
 import MusicToggle, { type MusicToggleProps } from '../components/music/MusicToggle';
