@@ -540,7 +540,7 @@ em {
   box-shadow: 0 16px 42px #573c2912;
 }
 .closing-family .closing-photo img {
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 3 / 2;
   height: auto;
   object-fit: contain;
   border-radius: 0;

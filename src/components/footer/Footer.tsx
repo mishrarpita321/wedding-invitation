@@ -26,9 +26,9 @@ export default function Footer() {
           <h2>Your presence will make<br /><em>our joy complete.</em></h2>
         </motion.div>
         <motion.div className="closing-photo" variants={reduced ? undefined : photoReveal}>
-          <img src="/assets/family.webp" srcSet="/assets/family-small.webp 800w, /assets/family.webp 1600w"
-            sizes="(max-width: 1359px) 100vw, 1320px" width={1600} height={800}
-            alt="Arpita’s family together at a celebration, with their dog" loading="lazy" decoding="async" />
+          <img src="/assets/family.webp" srcSet="/assets/family-small.webp 800w, /assets/family.webp 1536w"
+            sizes="(max-width: 1359px) 100vw, 1320px" width={1536} height={1024}
+            alt="Arpita’s family gathered outdoors, with their dog" loading="lazy" decoding="async" />
         </motion.div>
         <motion.div className="closing-message" variants={reduced ? undefined : reveal}>
           <p className="closing-hosts">

@@ -8,7 +8,7 @@ export const wedding = {
   compactDate: '10 · 02 · 2027',
   location: 'Bhubaneswar, Odisha',
   residence: 'D/23, Mason Paradise, Inajna, near Patia Station, Bhubaneswar',
-  audio: '/assets/wedding-music.mp3',
+  audio: '/assets/wedding-music1.mp4',
   photos: { footer1: '/assets/footer1.webp', together: '/assets/together.webp', together1: '/assets/together1.webp', arpita: '/assets/arpita.webp', swagat: '/assets/swagat.webp' },
 };
 
