@@ -140,7 +140,7 @@ export default function RsvpDialog({ open, onClose }: { open: boolean; onClose: 
                 </fieldset>
                 <motion.button type="button" className="rsvp-decline" aria-pressed={status === 'declined'}
                   onClick={() => { setStatus(current => current === 'declined' ? 'attending' : 'declined'); setSelected(selectEvents()); }} {...selectionFeedback}>
-                  {status === 'declined' && <span aria-hidden="true">✓ </span>}Can’t make it this time
+                  {status === 'declined' && <span aria-hidden="true">✓ </span>}Unable to attend
                 </motion.button>
               </fieldset>
               {failed && <p className="rsvp-error rsvp-send-error" role="alert">We couldn’t send your RSVP just yet. Please try again.</p>}
