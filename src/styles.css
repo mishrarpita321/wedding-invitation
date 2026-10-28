@@ -479,9 +479,6 @@ em {
   color: var(--muted);
 }
 
-.closing.section {
-  padding: clamp(44px, 6vw, 80px) 20px;
-}
 
 .closing-composition {
   display: grid;
@@ -679,7 +676,7 @@ em {
 
 @media (max-width:600px) {
   .section {
-    padding: 45px 20px;
+    padding: 20px 20px;
   }
 
   .masthead {

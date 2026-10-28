@@ -8,7 +8,10 @@ export function SectionFlorals({ variant }: { variant: 'blessing' | 'couple' | '
         <span className="floral-corner floral-corner--first" />
         <span className="floral-corner floral-corner--last" />
       </>}
-      {variant === 'couple' && <span className="floral-bottom" />}
+      {variant === 'couple' && <>
+        <span className="floral-corner floral-corner--bottom-left" />
+        <span className="floral-corner floral-corner--bottom-right" />
+      </>}
     </div>
   );
 }

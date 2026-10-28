@@ -41,13 +41,8 @@
   transform: scaleX(-1);
 }
 
-.floral-bottom {
-  position: absolute;
-  inset: auto 0 0;
-  height: var(--couple-border-height);
-  /* Show the flowers at the foot of the original image, without its blank canvas. */
-  background: url('../../../assets/bottomborder.png') center bottom / max(760px, 100%) auto no-repeat;
-}
+.floral-corner--bottom-left { bottom: 0; left: 0; transform: scaleY(-1); }
+.floral-corner--bottom-right { bottom: 0; right: 0; transform: rotate(180deg); }
 
 /* The same rose artwork carries through the opening and the couple's names. */
 .envelope-stage {
@@ -88,8 +83,7 @@
 }
 
 .family-section.section {
-  --couple-border-height: max(110px, 14.5vw);
-  padding-block: 44px calc(16px + var(--couple-border-height));
+  padding-block: 44px;
 }
 .family-section h2 { margin-bottom: 26px; }
 
@@ -135,9 +129,11 @@
     background-size: 500px auto;
   }
   .section-florals--couple .floral-corner { width: 125px; }
-  .section-florals--couple .floral-corner--first { left: -15px; }
-  .section-florals--couple .floral-corner--last { right: -15px; }
-  .family-section.section { padding-block: 36px calc(12px + var(--couple-border-height)); }
+  .section-florals--couple .floral-corner--first,
+  .section-florals--couple .floral-corner--bottom-left { left: -15px; }
+  .section-florals--couple .floral-corner--last,
+  .section-florals--couple .floral-corner--bottom-right { right: -15px; }
+  .family-section.section { padding-block: 36px; }
   .family-section h2 { margin-bottom: 24px; }
   .section-florals--footer .floral-corner {
     width: 125px;
