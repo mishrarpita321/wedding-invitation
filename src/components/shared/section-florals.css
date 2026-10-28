@@ -1,0 +1,148 @@
+/* White in the supplied artwork blends into the warm stationery underneath. */
+.section-florals {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: multiply;
+}
+
+.floral-garland {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(100%, 1040px);
+  aspect-ratio: 886 / 302;
+  transform: translateX(-50%);
+  background: url('../../../assets/upperborder.png') top center / 100% auto no-repeat;
+  opacity: .96;
+  /* Let the longer outer strands frame the invocation in the open center. */
+  mask-image: linear-gradient(to right, #000 10%, #000b 42%, #000b 58%, #000 90%);
+}
+
+.floral-corner {
+  position: absolute;
+  width: clamp(240px, 29vw, 410px);
+  height: clamp(300px, 34vw, 470px);
+  background: url('../../../assets/floweralBorder.png') top left / 780px auto no-repeat;
+  opacity: .94;
+  mask-image: radial-gradient(ellipse 100% 100% at top left, #000 28%, #000e 50%, transparent 100%);
+}
+
+.floral-corner--first { top: 0; left: 0; }
+.floral-corner--last { right: 0; bottom: 0; transform: rotate(180deg); }
+
+.section-florals--hero .floral-corner--last,
+.section-florals--couple .floral-corner--last {
+  top: 0;
+  bottom: auto;
+  transform: scaleX(-1);
+}
+
+.floral-bottom {
+  position: absolute;
+  inset: auto 0 0;
+  height: var(--couple-border-height);
+  /* Show the flowers at the foot of the original image, without its blank canvas. */
+  background: url('../../../assets/bottomborder.png') center bottom / max(760px, 100%) auto no-repeat;
+}
+
+/* The same rose artwork carries through the opening and the couple's names. */
+.envelope-stage {
+  background: radial-gradient(ellipse at 50% 55%, #e9cf9a24, transparent 65%), var(--ivory);
+}
+.envelope-stage > .section-florals { z-index: -1; }
+.section-florals--envelope .floral-corner {
+  width: clamp(260px, 34vw, 480px);
+  height: clamp(320px, 40vw, 520px);
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  background: var(--ivory);
+}
+.hero > .section-florals { z-index: -1; }
+.section-florals--hero .floral-corner {
+  width: clamp(200px, 25vw, 330px);
+  height: clamp(280px, 32vw, 400px);
+  background-size: 680px auto;
+}
+
+.family-section,
+.closing-family {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 0% 0%, #e9b8a126, transparent 48%),
+    radial-gradient(ellipse at 100% 100%, #d1b5791a, transparent 46%),
+    var(--ivory);
+}
+
+.family-section > .MuiContainer-root,
+.closing-family > .closing-composition {
+  position: relative;
+  z-index: 1;
+}
+
+.family-section.section {
+  --couple-border-height: max(110px, 14.5vw);
+  padding-block: 44px calc(16px + var(--couple-border-height));
+}
+.family-section h2 { margin-bottom: 26px; }
+
+/* A quiet second arch gives the portraits a little depth. */
+.family-section .portrait {
+  background: #faf6eebf;
+  box-shadow: 0 0 0 5px var(--ivory), 0 0 0 6px #b995552b, 0 12px 30px #573c290a;
+}
+
+.closing-family {
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 50% 100%, #e9b8a12e, transparent 60%),
+    linear-gradient(var(--ivory), #f5ecdf);
+}
+
+.section-florals--footer .floral-corner {
+  top: auto;
+  bottom: 0;
+  opacity: .94;
+}
+.section-florals--footer .floral-corner--first { transform: scaleY(-1); }
+.section-florals--footer .floral-corner--last { transform: rotate(180deg); }
+.closing.closing-family.section { padding-bottom: 90px; }
+
+@media (max-width: 600px) {
+  .floral-garland { width: 100%; opacity: .96; }
+  .floral-corner {
+    width: 150px;
+    height: 280px;
+    background-size: 560px auto;
+    opacity: .9;
+    mask-image: radial-gradient(ellipse 100% 100% at top left, #000 24%, #000d 46%, transparent 100%);
+  }
+  .section-florals--envelope .floral-corner {
+    width: 170px;
+    height: 260px;
+    background-size: 580px auto;
+  }
+  .section-florals--hero .floral-corner {
+    width: 130px;
+    height: 240px;
+    background-size: 500px auto;
+  }
+  .section-florals--couple .floral-corner { width: 125px; }
+  .section-florals--couple .floral-corner--first { left: -15px; }
+  .section-florals--couple .floral-corner--last { right: -15px; }
+  .family-section.section { padding-block: 36px calc(12px + var(--couple-border-height)); }
+  .family-section h2 { margin-bottom: 24px; }
+  .section-florals--footer .floral-corner {
+    width: 125px;
+    height: 220px;
+    opacity: .9;
+  }
+  .closing.closing-family.section { padding-bottom: 72px; }
+}

@@ -4,10 +4,12 @@ import { wedding } from '../../data/wedding';
 import { Flourish } from '../shared/Ornaments';
 import { Reveal } from '../shared/Reveal';
 import { Photo } from '../shared/Photo';
+import { SectionFlorals } from '../shared/SectionFlorals';
 
 export default function CoupleIntroduction() {
   return (
     <section id="families" className="section family-section" aria-labelledby="families-title">
+      <SectionFlorals variant="couple" />
       <Container maxWidth="md">
         <Reveal>
           {/* <p className="eyebrow">Two hearts · Two families · One forever</p> */}
@@ -21,8 +23,6 @@ export default function CoupleIntroduction() {
             <p className="parent-label">Daughter of</p>
             <p>{wedding.bride.parents[1]}<br /><span className="gold">&</span><br />{wedding.bride.parents[0]}</p>
           </Reveal>
-          <br />
-          {/* <div className="couple-amp" aria-hidden="true">&</div> */}
           <Reveal className="person">
             <div className="portrait"><Photo name="swagat" alt={`${wedding.groom.name}, the groom`} /></div>
             <p className="eyebrow">The groom</p><h3>{wedding.groom.name}</h3>

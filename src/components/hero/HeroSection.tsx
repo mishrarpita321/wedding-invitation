@@ -3,6 +3,7 @@ import ScratchDateReveal from './ScratchDateReveal';
 import { wedding } from '../../data/wedding';
 import { Flourish } from '../shared/Ornaments';
 import { Photo } from '../shared/Photo';
+import { SectionFlorals } from '../shared/SectionFlorals';
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 22 },
@@ -21,6 +22,7 @@ export default function HeroSection() {
   return (
     <motion.section className="hero" aria-labelledby="couple-names"
       initial={reduced ? false : 'hidden'} whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+      <SectionFlorals variant="hero" />
       <div className="hero-copy">
         <h1 id="couple-names" className="hero-names">
           <motion.span className="hero-name" custom={0} variants={reduced ? undefined : reveal}>{wedding.bride.firstName}</motion.span>

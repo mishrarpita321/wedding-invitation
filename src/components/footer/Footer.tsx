@@ -1,5 +1,6 @@
 ﻿import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { Lotus, Flourish } from '../shared/Ornaments';
+import { SectionFlorals } from '../shared/SectionFlorals';
 import { pressFeedback } from '../../utils/press';
 import { useState } from 'react';
 import RsvpDialog from '../rsvp/RsvpDialog';
@@ -18,6 +19,7 @@ export default function Footer() {
   const [rsvpOpen, setRsvpOpen] = useState(false);
   return (
     <footer className="section closing closing-family">
+      <SectionFlorals variant="footer" />
       <motion.div className="closing-composition" initial={reduced ? false : 'hidden'} whileInView="visible"
         viewport={{ once: true, amount: 0.2 }} variants={{ visible: { transition: { staggerChildren: 0.18 } } }}>
         <motion.div className="closing-intro" variants={reduced ? undefined : reveal}>

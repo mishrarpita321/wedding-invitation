@@ -15,6 +15,8 @@ export default function Envelope({ opening, onOpen }: EnvelopeProps) {
     <div className={`envelope ${opening ? 'is-open' : ''}`}>
       <span className="envelope-back" />
       <div className="invitation-card">
+        <span className="card-flower card-flower--left" aria-hidden="true" />
+        <span className="card-flower card-flower--right" aria-hidden="true" />
         <img className="card-monogram" src={monogram} alt="Arpita and Swagat monogram" />
         <small>TOGETHER WITH THEIR FAMILIES</small>
         <span className="card-names stationery-names">{wedding.bride.firstName} <span className="names-ampersand">&</span> {wedding.groom.firstName}</span>
@@ -33,8 +35,8 @@ export default function Envelope({ opening, onOpen }: EnvelopeProps) {
           <span className="seal-open-cue" aria-hidden="true">Tap here</span>
         </motion.button>
       </div>
-      <span aria-hidden="true" className="envelope-vine vine-left">❦</span>
-      <span aria-hidden="true" className="envelope-vine vine-right">❦</span>
+      {/* <span className="envelope-flower envelope-flower--left" aria-hidden="true" />
+      <span className="envelope-flower envelope-flower--right" aria-hidden="true" /> */}
     </div>
   );
 }

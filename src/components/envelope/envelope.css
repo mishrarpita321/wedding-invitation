@@ -124,9 +124,22 @@
   0% { transform: scale(.96); opacity: .85; }
   75%, 100% { transform: scale(1.3); opacity: 0; }
 }
-.envelope-vine { position: absolute; z-index: 5; bottom: 8px; color: #ac8b524d; font-size: 65px; line-height: 1; }
-.vine-left { left: 15px; transform: rotate(-35deg); }
-.vine-right { right: 15px; transform: rotate(35deg) scaleX(-1); }
+.envelope-flower,
+.card-flower {
+  position: absolute;
+  background: url('../../../assets/floweralBorder.png') top left / 350% auto no-repeat;
+  mask-image: radial-gradient(ellipse 100% 100% at top left, #000 30%, #000e 55%, transparent 100%);
+  mix-blend-mode: multiply;
+  opacity: .95;
+  pointer-events: none;
+  user-select: none;
+}
+.envelope-flower { z-index: 5; bottom: 1px; width: 32%; height: 45%; }
+.envelope-flower--left { left: 1px; transform: scaleY(-1); }
+.envelope-flower--right { right: 1px; transform: rotate(180deg); }
+.card-flower { z-index: -1; top: 0; width: 26%; height: 42%; }
+.card-flower--left { left: 0; }
+.card-flower--right { right: 0; transform: scaleX(-1); }
 .invitation-card {
   position: absolute;
   left: 8%;

@@ -1,6 +1,7 @@
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import { wedding } from '../../data/wedding';
 import { Flourish } from '../shared/Ornaments';
+import { SectionFlorals } from '../shared/SectionFlorals';
 import ganeshLogo from '../../../assets/GaneshLogo.png';
 import './blessing.css';
 
@@ -14,6 +15,7 @@ export default function GaneshBlessing() {
     <motion.section className="section ganesh-blessing" aria-label="Lord Ganesha’s blessing"
       initial={reduced ? false : 'hidden'} animate="visible"
       variants={{ visible: { transition: { staggerChildren: 0.2 } } }}>
+      <SectionFlorals variant="blessing" />
       <div className="blessing-content">
         <motion.p className="sanskrit invocation" lang="hi" variants={item}>॥ श्री गणेशाय नमः ॥</motion.p>
         <motion.div variants={item}><img className="ganesh" src={ganeshLogo} alt="Lord Ganesha" /></motion.div>

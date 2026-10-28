@@ -9,15 +9,16 @@
 .blessing-scroll-cue svg { animation: blessing-scroll-nudge 2s ease-in-out infinite; }
 @keyframes blessing-scroll-nudge { 50% { transform: translateY(4px); } }
 @media (prefers-reduced-motion: reduce) { .blessing-scroll-cue svg { animation: none; } }
-.ganesh-blessing {
+.ganesh-blessing.section {
   position: relative;
   min-height: min(740px, 90svh);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 85px 25px 65px;
+  padding: 150px 25px 65px;
   text-align: center;
-  /* background: var(--paper); */
+  isolation: isolate;
+  background: radial-gradient(ellipse at 50% 35%, #e9cf9a29, transparent 58%), var(--ivory);
 }
 .ganesh-blessing::before {
   content: '';
@@ -27,9 +28,24 @@
   left: max(18px, calc((100% - 940px) / 2));
   right: max(18px, calc((100% - 940px) / 2));
   border: 1px solid var(--line);
+  border-radius: 160px 160px 4px 4px / 70px 70px 4px 4px;
   pointer-events: none;
 }
-.blessing-content { width: 100%; max-width: 580px; }
+.blessing-content { position: relative; z-index: 1; width: 100%; max-width: 580px; }
+.blessing-content::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 310px;
+  height: 310px;
+  max-width: 90%;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #d9b36a1f, #d9b36a08 58%, transparent 70%);
+  pointer-events: none;
+}
 .sanskrit { font-family: 'Noto Serif Devanagari', Georgia, serif; color: var(--maroon); }
 .invocation { font-size: 20px; letter-spacing: .06em; margin-bottom: 28px; }
 .ganesh { display: block; width: clamp(220px, 42vw, 220px); max-width: 100%; height: auto; object-fit: contain; margin: 0 auto 28px; }
@@ -37,7 +53,9 @@
 .blessing-meaning { font: italic 21px/1.6 var(--display); color: var(--muted); margin-bottom: 0; }
 .ganesh-blessing .flourish { margin: 25px auto 0; }
 @media (max-width: 600px) {
-  .ganesh-blessing.section { padding: 28px 25px 12px; }
+  .ganesh-blessing.section { padding: 104px 25px 24px; }
+  .ganesh-blessing::before { top: 55px; bottom: 14px; }
+  .blessing-content::before { width: 250px; height: 250px; top: 18px; }
   .ganesh { width: clamp(120px, 25svh, 200px); margin-bottom: 16px; }
   .invocation { margin-bottom: 16px; }
   .blessing-meaning { font-size: clamp(18px, 2.8svh, 22px); }

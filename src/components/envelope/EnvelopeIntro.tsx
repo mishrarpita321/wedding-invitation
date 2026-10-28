@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { wedding } from '../../data/wedding';
 import { Lotus } from '../shared/Ornaments';
+import { SectionFlorals } from '../shared/SectionFlorals';
 import Envelope from './Envelope';
 import './envelope.css';
 
@@ -39,6 +40,7 @@ export default function EnvelopeIntro({ onOpen, onPlayMusic }: EnvelopeIntroProp
       initial={{ opacity: reduced ? 1 : 0 }} animate={{ opacity: 1 }}
       exit={{ opacity: 0, scale: reduced ? 1 : 1.04 }} transition={{ duration: reduced ? 0.15 : 0.65 }}>
       <div className="opening envelope-stage">
+        <SectionFlorals variant="envelope" />
         <div className="paper-frame" />
         <Lotus className="opening-lotus" />
         <motion.p className="eyebrow" initial={{ opacity: reduced ? 1 : 0 }} animate={{ opacity: 1 }} transition={{ delay: reduced ? 0 : 0.7 }}>
